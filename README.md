@@ -1,2 +1,2 @@
-# maskfy
-mask input, ES6, 1kb (minify) ♥
+# MASKFY
+Input mask + ES6 + no dependence + **only 1kb** (minify) = ♥
