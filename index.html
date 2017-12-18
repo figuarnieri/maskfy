@@ -123,12 +123,6 @@ or
 
   <script src="maskfy.js"></script>
   <script>
-    fetch('maskfy.js').then(e => e.text()).then((e)=> {
-      var code = e.replace(/\s\s+/g,'').replace(/\s=\s/g,'=').replace(/\)\s/g,')').replace(/\, /g,',').replace(/\s\|\|\s/g,'||').replace(/\s\{/g,'{').replace(/\s\?\s/g,'?').replace(/\s\:\s/g,':')
-      console.log(code);
-    })
-  </script>
-  <script>
     new Maskfy('[data-mask]');
   </script>
 </body>

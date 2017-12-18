@@ -2,12 +2,12 @@ html, body{min-height: 100vh;}
 *{box-sizing: border-box;margin: 0;padding: 0;}
 
 @keyframes logo{
-    0% {opacity: 0;transform: perspective(1000px) rotateX(-90deg);}
-    100% {opacity: 1;transform: perspective(1000px) rotateX(0deg);}
+  0% {opacity: 0;transform: perspective(1000px) rotateX(-90deg);}
+  100% {opacity: 1;transform: perspective(1000px) rotateX(0deg);}
 }
 @keyframes bg{
-    0%{background-color: #111;}
-    100%{background-color: #ee7517;}
+  0%{background-color: #111;}
+  100%{background-color: #ee7517;}
 }
 .logo-svg{width: 300px;display: block;margin: 0 auto;}
 .logo-mask{transform-origin: 50% 100%;animation: logo 1s;animation-fill-mode: forwards;}
@@ -48,3 +48,12 @@ html, body{min-height: 100vh;}
 .page--attr{color: #a6e22e;}
 .page--value{color: #e6db74;}
 .page--important{color: #66d9ef;font-weight: bold;font-style: italic;}
+
+@media (max-width: 768px){
+  .full{padding: 20px 10px;}
+  .full--subtitle{-webkit-text-stroke: 0 transparent;font-size: 20px;}
+  .page{padding: 20px;}
+  .page code{overflow: auto;padding: 20px 10px;}
+  .page--label{text-align: left;width: 100%;}
+  .page--field{width: 100%;}
+}
