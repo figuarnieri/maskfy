@@ -50,7 +50,7 @@ If necessary, you could add attributes in the tag, to configure your mask option
 ```
 
 ## Source
-[Github](https://github.com/figuarnieri/maskfy) | [@figuarnieri](https://twitter.com/figuarnieri)
+[Github](https://github.com/figuarnieri/maskfy) | [Exemple](https://figuarnieri.github.io/maskfy/) | [@figuarnieri](https://twitter.com/figuarnieri)
 
 ## License
 The MIT License
