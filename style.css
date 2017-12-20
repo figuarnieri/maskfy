@@ -9,6 +9,10 @@ html, body{min-height: 100vh;}
   0%{background-color: #111;}
   100%{background-color: #ee7517;}
 }
+.fullwrap{width: 100%;position: absolute;top: 0;left: 0;}
+.wrap-social{max-width: 1000px;width: 100%;padding: 10px;margin: 0 auto;font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;text-align: right;}
+.wrap-social .btn{padding: 10px 25px;display: inline-block;font-size: 13px;color: #666;background-color: #ddd;border-radius: 3px;text-decoration: none;font-weight: bold;border-bottom: 2px solid #aaa;}
+.wrap-social .btn:hover{background-color: #fff;}
 .logo-svg{width: 300px;display: block;margin: 0 auto;}
 .logo-mask{transform-origin: 50% 100%;animation: logo 1s;animation-fill-mode: forwards;}
 .logo-mask-left{d: path('M124.3,21.9L124.3,21.9L97.5,0v63v1.5v21.2l45,22.3V18C136,18,129.9,19.4,124.3,21.9z');}
