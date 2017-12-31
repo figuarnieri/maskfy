@@ -46,7 +46,7 @@ If necessary, you could add attributes in the tag, to configure your mask option
 ```
 ### data-mask-size
 ```html
-<input data-mask="999.999.999,99" data-mask-reverse="" data-mask-size>
+<input data-mask="999.999.999,99" data-mask-reverse="" data-mask-size="3">
 ```
 
 ## Source
