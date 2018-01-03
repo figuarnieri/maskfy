@@ -2,7 +2,7 @@
 <html lang="pt-br">
 <head>
   <meta charset="UTF-8">
-  <title>Maskfy</title>
+  <title>Maskfy - Simple, No Dependences, Mobile Compatibility, Only 1kb (gzip)</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -10,8 +10,8 @@
   <div class="full">
     <div class="fullwrap">
       <div class="wrap-social">
-        <a href="https://github.com/figuarnieri/maskfy/archive/master.zip" class="btn download" target="_blank">Download</a>
-        <a href="https://github.com/figuarnieri/maskfy" class="btn github" target="_blank">GitHub</a>
+        <a href="https://github.com/figuarnieri/maskfy/archive/master.zip" class="btn download" target="_blank" aria-label="Download button">Download</a>
+        <a href="https://github.com/figuarnieri/maskfy" class="btn github" target="_blank" aria-label="Button to repository on GitHub.com">GitHub</a>
       </div>
     </div>
     <svg class="logo-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 281.1 176.7">
@@ -37,27 +37,29 @@
     <div class="page--contain">
       <h2 class="page--title">Install / Usage</h2>
       <p>Add Maskfy file</p>
-      <code>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"path/js/maskfy.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</code>
+      <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/maskfy/master/maskfy.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</span>
+or
+<span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"path/js/maskfy.min.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</code>
       <h3 class="page--subtitle">HTML <small class="page--subtitle-small">(by class or attribute)</small></h3>
       <p>Insert a selector in class tag</p>
-      <code>&lt;<span class="page--tag">input</span> <span class="page--attr">class</span>=<span class="page--value">"page--input"</span> <span class="page--important">data-mask="999.999.999-99"</span> <span class="page--attr">type</span>=<span class="page--value">"text"</span> <span class="page--attr">placeholder</span>=<span class="page--value">"CPF (Ex.: 999.999.999-99)"</span>&gt;
+      <code><span data-clipboard>&lt;<span class="page--tag">input</span> <span class="page--attr">class</span>=<span class="page--value">"page--input"</span> <span class="page--important">data-mask="999.999.999-99"</span> <span class="page--attr">type</span>=<span class="page--value">"text"</span> <span class="page--attr">placeholder</span>=<span class="page--value">"CPF (Ex.: 999.999.999-99)"</span>&gt;</span>
 or
-&lt;<span class="page--tag">input</span> <span class="page--attr">class</span>=<span class="page--value">"page--input <span class="page--important">mask-by-class</span>"</span> <span class="page--attr">type</span>=<span class="page--value">"text"</span> <span class="page--attr">placeholder</span>=<span class="page--value">"CPF (Ex.: 999.999.999-99)"</span>&gt;</code>
+<span data-clipboard>&lt;<span class="page--tag">input</span> <span class="page--attr">class</span>=<span class="page--value">"page--input <span class="page--important">mask-by-class</span>"</span> <span class="page--attr">type</span>=<span class="page--value">"text"</span> <span class="page--attr">placeholder</span>=<span class="page--value">"CPF (Ex.: 999.999.999-99)"</span>&gt;</span></code>
       <h3 class="page--subtitle">Javascript Simple <small class="page--subtitle-small">(by attribute)</small></h3>
-      <code>&lt;<span class="page--tag">script</span>&gt;
+      <code><span data-clipboard>&lt;<span class="page--tag">script</span>&gt;
   <span class="page--tag">new</span> <span class="page--value">Maskfy('</span><span class="page--important">[data-mask]</span><span class="page--value">')</span>;
-&lt;/<span class="page--tag">script</span>&gt;
+&lt;/<span class="page--tag">script</span>&gt;</span>
 or
-&lt;<span class="page--tag">script</span>&gt;
+<span data-clipboard>&lt;<span class="page--tag">script</span>&gt;
   <span class="page--tag">new</span> <span class="page--value">Maskfy('</span><span class="page--important">.mask-by-class</span><span class="page--value">')</span>;
-&lt;/<span class="page--tag">script</span>&gt;</code>
+&lt;/<span class="page--tag">script</span>&gt;</span></code>
       <h3 class="page--subtitle">Javascript Options</h3>
-<code>&lt;<span class="page--tag">script</span>&gt;
+<code data-clipboard>&lt;<span class="page--tag">script</span>&gt;
   <span class="page--tag">new</span> <span class="page--value">Maskfy({</span>
-    <span class="page--attr">tag</span>: <span class="page--value">'[data-mask]'</span>, // selector tag
-    <span class="page--attr">reverse</span>: <span class="page--value">true</span>, // reverse typing
-    <span class="page--attr">mask</span>: <span class="page--value">'999.999.999,99'</span>, // mask pattern
-    <span class="page--attr">size</span>: <span class="page--value">3</span> // minimum digits
+    <span data-clipboard><span class="page--attr">tag</span>: <span class="page--value">'[data-mask]'</span>, // selector tag</span>
+    <span data-clipboard><span class="page--attr">reverse</span>: <span class="page--value">true</span>, // reverse typing</span>
+    <span data-clipboard><span class="page--attr">mask</span>: <span class="page--value">'999.999.999,99'</span>, // mask pattern</span>
+    <span data-clipboard><span class="page--attr">size</span>: <span class="page--value">3</span> // minimum digits</span>
   <span class="page--value">})</span>;
 &lt;/<span class="page--tag">script</span>&gt;</code>
     </div>
@@ -106,11 +108,11 @@ or
       <h2 class="page--title">Data attributes  <small class="page--subtitle-small">[data-*]</small></h2>
       <p>If necessary, you could add attributes in the tag, to configure your mask options</p>
       <h3 class="page--subtitle">data-mask</h3>
-      <code>&lt;<span class="page--tag">input</span> <span class="page--important">data-mask="999.999.999,99"</span>&gt;</code>
+      <code data-clipboard="data">&lt;<span class="page--tag">input</span> <span class="page--important">data-mask="999.999.999,99"</span>&gt;</code>
       <h3 class="page--subtitle">data-mask-reverse</h3>
-      <code>&lt;<span class="page--tag">input</span> <span class="page--attr">data-mask</span>=<span class="page--value">"999.999.999,99"</span> <span class="page--important">data-mask-reverse</span>&gt;</code>
+      <code data-clipboard="data">&lt;<span class="page--tag">input</span> <span class="page--attr">data-mask</span>=<span class="page--value">"999.999.999,99"</span> <span class="page--important">data-mask-reverse</span>&gt;</code>
       <h3 class="page--subtitle">data-mask-size</h3>
-      <code>&lt;<span class="page--tag">input</span> <span class="page--attr">data-mask</span>=<span class="page--value">"999.999.999,99"</span> <span class="page--attr">data-mask-reverse</span>=<span class="page--value">""</span> <span class="page--important">data-mask-size</span>&gt;</code>
+      <code data-clipboard="data">&lt;<span class="page--tag">input</span> <span class="page--attr">data-mask</span>=<span class="page--value">"999.999.999,99"</span> <span class="page--attr">data-mask-reverse</span>=<span class="page--value">""</span> <span class="page--important">data-mask-size="3"</span>&gt;</code>
     </div>
     <div class="page--contain">
       <h2 class="page--title">Source</h2>
@@ -126,6 +128,9 @@ or
       </p>
     </div>
   </div>
+
+  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
+  <script>const clipcode=new Clipboard('[data-clipboard]',{target:(e)=>{e.setAttribute('data-clipboard-copy','');return document.querySelector(e.dataset.clipboard==='data'?'[data-clipboard-copy] .page--important':'[data-clipboard-copy]')}});clipcode.on('success',(e)=>{e.trigger.removeAttribute('data-clipboard-copy');});</script>
 
   <script src="maskfy.js"></script>
   <script>
