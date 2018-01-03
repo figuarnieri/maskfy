@@ -3,6 +3,8 @@ A Javascript library without a dependency of jQuery, Zepto, and etc ... Very sim
 ## Install / Usage
 Add Maskfy file
 ```html
+<script src="https://cdn.rawgit.com/figuarnieri/maskfy/master/maskfy.min.js"></script>
+or
 <script src="path/js/maskfy.min.js"></script>
 ```
 ### HTML _(by class or attribute)_
