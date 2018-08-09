@@ -103,13 +103,13 @@
   </div>
   <div class="page">
     <h1 class="page--bigtitle">Maskfy 2 - Input Mask Simple</h1>
-    <p>A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, it's also well accepted on mobile devices</p>
+    <p>A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, IE Compatibility, it's also well accepted on mobile devices</p>
     <div class="page--contain">
       <h2 class="page--title">Install / Usage</h2>
       <p>Add Maskfy file</p>
-      <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/maskfy/master/maskfy2.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</span>
+      <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/maskfy/master/maskfy.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</span>
 or
-<span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"path/js/maskfy2.es5.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</code>
+<span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"path/js/maskfy.es5.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</code>
       <h3 class="page--subtitle">HTML <small class="page--subtitle-small">(by class or attribute)</small></h3>
       <p>Insert a selector in class tag</p>
       <code><span data-clipboard>&lt;<span class="page--tag">input</span> <span class="page--attr">class</span>=<span class="page--value">"page--input"</span> <span class="page--important">data-maskfy="999.999.999-99"</span> <span class="page--attr">type</span>=<span class="page--value">"text"</span> <span class="page--attr">placeholder</span>=<span class="page--value">"CPF (Ex.: 999.999.999-99)"</span>&gt;</span>
@@ -122,9 +122,9 @@ or
     <span data-clipboard><span class="page--attr">mask</span>: <span class="page--value">'999.999.999,99'</span>, //{String: undefined} (required) input mask pattern</span>
     <span data-clipboard><span class="page--attr">reverse</span>: <span class="page--value">false</span>, //{Boolean: false} reverse typing</span>
     <span data-clipboard><span class="page--attr">minSize</span>: <span class="page--value">3</span> //{Boolean: false} minimum digits</span>
-    <span data-clipboard><span class="page--attr">defaultValue</span>: <span class="page--value">3</span> //{String: undefined} initial value</span>
-    <span data-clipboard><span class="page--attr">letters</span>: <span class="page--value">3</span> //{Boolean: false} allowed letters</span>
-    <span data-clipboard><span class="page--attr">after</span>: <span class="page--value">3</span> //{Function: undefined} after input event</span>
+    <span data-clipboard><span class="page--attr">defaultValue</span>: <span class="page--value">'123'</span> //{String: undefined} initial value</span>
+    <span data-clipboard><span class="page--attr">letters</span>: <span class="page--value">true</span> //{Boolean: false} allowed letters</span>
+    <span data-clipboard><span class="page--attr">after</span>: <span class="page--value">(input) => console.log(input)</span> //{Function: undefined} after input event</span>
   <span class="page--value">})</span>;
 &lt;/<span class="page--tag">script</span>&gt;</code>
     </div>
