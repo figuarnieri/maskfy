@@ -135,3 +135,22 @@ class Maskfy{
     this.after(tag, this);
   }
 }
+
+(function (root, classMask) {
+  if (typeof define === 'function' && define.amd) {
+    /**
+     * AMD. Register as an anonymous module.
+     */
+    define([], classMask);
+  } else if (typeof exports === 'object') {
+    /**
+     * Node. Does not work with strict CommonJS, but only CommonJS-like environments that support module.exports, like Node.
+     */
+    module.exports = classMask;
+  } else {
+    /**
+     * Browser globals (root is window)
+     */
+    root.memoize = classMask;
+  }
+}(this, Maskfy))
