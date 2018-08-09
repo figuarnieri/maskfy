@@ -3,140 +3,135 @@
  * @copyright: The MIT License
  * @name Maskfy
  * @description: A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, it's also well accepted on mobile devices
- * @since: 2017
- * @version: 1.0.3
+ * @since: 2018
+ * @version: 2.0.0
  */
+
 "use strict";
 
-class Maskfy {
+class Maskfy{
   /**
    * @param {String || Object} Selector String
    * @return {String || Object}
    */
-  constructor(obj){
-    this.objectTag = typeof obj==='string' ? obj : obj.tag;
-    this.objectSize = obj.size;
-    this.objectMask = obj.mask;
-    this.objectReverse = obj.reverse;
-    this.init(this.objectTag);
+  constructor(props){
+    this.tag = props.tag; // {String} Tag selector
+    this.mask = props.mask; // {String} Input mask
+    this.reverse = props.reverse; // {Boolean} Content insert invert (like coins)
+    this.minSize = props.minSize; // {Number} Minimum number of characters
+    this.defaultValue = props.defaultValue; // {String} Initial value
+    this.letters = props.letters; // {Boolean} Allowed alpha characters
+    this.after = props.after; // {Function} Function after insert new input value
+    
+    if(!this.tag) return console.error(new Error('Maskfy: Insert tag selector required. Ex.: Maskfy({tag: "[data-maskfy]"})'));
+    this.init();
   }
-
+  
   /**
    * function to execute foreach of objectTag
    * @param {String} input
    * @return {String}
    */
-  init(input){
-    document.querySelectorAll(input).forEach((tag) => {
-      this.paste(tag);
-      this.input(tag);
-      this.format(tag);
+  init(){
+    [].forEach.call(document.querySelectorAll(this.tag), tag => {
+      tag.addEventListener('input', e => this.format(e));
+      const _value = tag.value.trim();
+      if(_value!=='' || this.defaultValue){
+        tag.value = tag.value || tag.dataset.maskfyValue || this.defaultValue;
+      }
+      this.event(tag);
     });
   }
-
+  
+  /**
+   * dispatchEvent Input
+   * @param {String} input
+   * @return {String}
+   */
+  event(tag){
+    
+    if(window.navigator.msPointerEnabled){
+      const event = document.createEvent("Event");
+      event.initEvent("input", false, true);
+      tag.dispatchEvent(event);
+    } else {
+      tag.dispatchEvent(new Event('input'));
+    }
+  }
+  
   /**
    * Event Input
    * @param {String} input
    * @return {String}
    */
-  input(input){
-    input.addEventListener('input', (event) => {
-      const inputValue =  input.value, //get current value
-      inputLength =  inputValue.length, //get current value length
-      mask = this.objectMask || input.dataset.mask, //get format input mask
-      maskLength = mask.length, //get length by format input mask
-      maskSize = this.objectSize || input.dataset.maskSize, //get min length input mask
-      value = inputValue.replace(/\D/g, ''), //remove only not digits
-      valueFinal = value.split(''), //transform to Array
-      objectReverse = this.objectReverse || input.hasAttribute('data-mask-reverse'); //detect reverse value on input
-      let i; // iterator
-      /**
-       * If the mask value is greater than the input value
-       * @param {Number} inputLength > maskLength
-       * @return {Array} remove the last key typed
-       */
-      if(inputLength > maskLength){
-        valueFinal.pop();
+  format(e){
+    const _value = e.target.value;
+    const _mask = e.target.dataset.maskfy || this.mask;
+    const _reverse = e.target.dataset.maskfyReverse==='true' || this.reverse;
+    const _letters = e.target.dataset.maskfyLetters==='true' || this.letters;
+    let _valueFormat;
+    if(!_mask) return console.error(new Error('Maskfy: Insert input mask required. Ex.: Maskfy({mask: "9999-99-99"})'));
+    if(_mask.length>=_value.length){
+      _valueFormat = _value.replace((_letters ? /\W/g : /\D/g), '').split('');
+    } else {
+      _valueFormat = _value.split('');
+      _valueFormat.pop();
+      if(e.target.selectionEnd!==_value.length){
+        setTimeout(() => this.event(e.target), 10);
       }
-
-      /**
-       * If the reverse input mask
-       * @param {Boolean} objectReverse
-       */
-      if(objectReverse){
-        if(/\d/.test(valueFinal[0]) && valueFinal.length>maskSize && valueFinal[0]==='0'){
-          valueFinal.shift();
-        }
-        for(i in inputValue.split('')){
-          if(/\D/.test(mask[maskLength-i-1])){
-            valueFinal.splice(valueFinal.length-i, 0, mask[maskLength-i-1]);
-          }
-        }
-      /**
-       * If key press backward
-       */
-        if((event.inputType==='deleteContentBackward')){
-          if((value.length<maskSize)){
-            valueFinal.unshift(0);
-          }
-          if((/\D/.test(valueFinal[0]))){
-            valueFinal.shift();
-          }
-        }
-      } else{
-        for(i in inputValue.split('')){
-          if(/\D/.test(mask[i])){
-            valueFinal.splice(i, 0, mask[i]);
-          }
-        }
-      /**
-       * If key press backward
-       */
-        if(event.inputType==='deleteContentBackward'){
-          for(i=valueFinal.length-1; i>=0 ; i--){
-            (/\D/.test(valueFinal[i])) ? valueFinal.pop() : i=-1;
-          }
-        }
-      }
-      input.value = valueFinal.join('');
-      this.responsive(input);
-    });
-  }
-  /**
-   * Event Paste
-   * @param {String} input
-   * @return {null}   event.preventDefault
-   */
-  paste(input){
-    input.addEventListener('paste', (event) => event.preventDefault());
-  }
-  /**
-   * Format Input
-   * @param {String} input
-   * @return {String} format Input Mask by forEach
-   */
-  format(input){
-    const inputTrigger = input.value.split(''),
-    inputLength = inputTrigger.length,
-    objectSize = (this.objectSize || input.dataset.maskSize || 0);
-    for(var i=objectSize; i>inputLength; i--){
-      inputTrigger.unshift(0);
     }
-    input.value = '';
-    inputTrigger.map((item) => {
-      input.value += item;
-      const eventTrigger = new MouseEvent('input');
-      input.dispatchEvent(eventTrigger);
-    });
-  }
-  /**
-   * Responsive
-   * @param  {String} input
-   * @return {String} Bug fix selection position on mobile devices
-   */ 
-  responsive(input){
+    if(/^\W+/.test(_mask) && _mask.length>=_value.length){
+      _valueFormat.unshift(/^\W+/.exec(_mask)[0]);
+    }
+    if(_reverse){
+      const _minSize = Number(e.target.dataset.maskfyMinsize) || this.minSize;
+      const _maskReverse = _mask.split('');
+      const _valueReverse = _valueFormat.concat('');
+      _maskReverse.reverse();
+      _valueReverse.reverse().shift();
+      if(_minSize && _valueFormat.length<_minSize){
+        _valueReverse.push('0');
+      } else {
+        if(_valueReverse[_valueReverse.length-1]==='0'){
+          if(/\d/.test(_value[_value.length-1])){
+            _valueReverse.pop();
+          }
+        }
+      }
+      for(let i=0; i<_valueReverse.length; i++){
+        if(/\W/.test(_maskReverse[i])){
+          _valueReverse.splice(i, 0, _maskReverse[i]);
+        }
+      }
+      if(_maskReverse.length>=_valueReverse.length){
+        _valueFormat = _valueReverse.reverse();
+      }
+    } else {
+      for(let i=0; _mask.length>i && _mask.length>=_value.length; i++){
+        if(isNaN(parseInt(_mask[i])) && _valueFormat[i-1]){
+          _valueFormat.splice(i, 0, _mask[i])
+        }
+      }
+    }
+    _valueFormat.splice(_mask.length, _valueFormat.length);
+    e.target.value = _valueFormat.join('').replace(/(\W+)$/, '');
     setTimeout(() => {
-      input.selectionStart = input.selectionEnd = input.value.length;
-    }, 0);
+      if(!e.target.classList.contains('maskfy--active')){
+        e.target.classList.add('maskfy--active');
+        this.event(e.target);
+      }
+      if(this.after){
+        this.formatAfter(e.target);
+      }
+    }, 10);
+  }
+
+  /**
+   * Event After Insert Value
+   * @param {String} input
+   * @return {String}
+   */
+  formatAfter(tag){
+    this.after(tag, this);
   }
 }
