@@ -1,6 +1,6 @@
 {
   "name": "maskfy",
-  "version": "1.0.2",
+  "version": "2.0.1",
   "description": "A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, it's also well accepted on mobile devices",
   "main": "index.js",
   "scripts": {
