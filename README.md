@@ -21,7 +21,7 @@ or
     tag: '[data-maskfy]', //{String: undefined} (required) selector input
     mask: '999.999.999,99', //{String: undefined} (required) input mask pattern
     reverse: true, //{Boolean: false} reverse typing
-    minSize: 3 //{Boolean: false} minimum digits
+    minSize: 3 //{Number: false} minimum digits
     defaultValue: '123' //{String: undefined} initial value
     letters: true //{Boolean: false} allowed letters
     after: (input) => console.log(input) //{Function: undefined} after input event
