@@ -5,7 +5,7 @@ Add Maskfy file
 ```html
 <script src="https://cdn.rawgit.com/figuarnieri/maskfy/master/maskfy.js"></script>
 or
-<script src="path/js/maskfy.js"></script>
+<script src="path/js/maskfy.es5.js"></script>
 ```
 ### HTML _(by class or attribute)_
 Insert a selector in class tag

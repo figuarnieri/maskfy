@@ -1,0 +1,28 @@
+{
+  "name": "maskfy",
+  "version": "1.0.2",
+  "description": "A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, it's also well accepted on mobile devices",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/figuarnieri/maskfy.git"
+  },
+  "keywords": [
+    "1kb",
+    "inputmask",
+    "input-mask",
+    "javascript",
+    "nojquery",
+    "data-mask",
+    "1kb"
+  ],
+  "author": "figuarnieri",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/figuarnieri/maskfy/issues"
+  },
+  "homepage": "https://github.com/figuarnieri/maskfy#readme"
+}
