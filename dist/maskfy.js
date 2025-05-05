@@ -7,29 +7,26 @@
  * @version: 3.0.0
  */
 'use strict';
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.maskfy = exports.maskfySettings = exports.MaskfyDefault = void 0;
-exports.MaskfyDefault = {
+export const MaskfyDefault = {
     Mask: '999.999.999.999',
     Reverse: false,
     Keybind: { A: /[A-Za-z]/, 9: /\d/, '?': /./ },
     Prefix: '',
     Suffix: '',
 };
-const maskfySettings = (options = {}) => {
+export const maskfySettings = (options = {}) => {
     const settings = {
-        mask: exports.MaskfyDefault.Mask,
-        reverse: exports.MaskfyDefault.Reverse,
-        prefix: exports.MaskfyDefault.Prefix,
-        suffix: exports.MaskfyDefault.Suffix,
+        mask: MaskfyDefault.Mask,
+        reverse: MaskfyDefault.Reverse,
+        prefix: MaskfyDefault.Prefix,
+        suffix: MaskfyDefault.Suffix,
         ...options,
     };
     return settings;
 };
-exports.maskfySettings = maskfySettings;
-const maskfy = (value, options = {}) => {
+export const maskfy = (value, options = {}) => {
     const valueString = String(value).replace(/\s/g, '');
-    const settings = (0, exports.maskfySettings)(options);
+    const settings = maskfySettings(options);
     const { mask, reverse, prefix, suffix } = settings;
     const valueSplit = valueString.split('');
     const maskSplit = mask.split('');
@@ -45,7 +42,7 @@ const maskfy = (value, options = {}) => {
     maskInterator.forEach((_, i) => {
         const currentMask = maskInterator[i - maskTruncate];
         const currentValue = valueInterator[i + valueTruncate];
-        const keybindMask = exports.MaskfyDefault.Keybind[currentMask];
+        const keybindMask = MaskfyDefault.Keybind[currentMask];
         if (currentValue) {
             if (keybindMask?.test(currentMask)) {
                 if (keybindMask?.test(currentValue)) {
@@ -66,7 +63,7 @@ const maskfy = (value, options = {}) => {
     if (maskTruncate && valueSplit.length >= valueFinal.length + maskTruncate && maskSplit.length === valueSplit.length) {
         const valueRest = valueString.substring(valueString.length - maskTruncate, valueString.length);
         const maskRest = mask.substring(mask.length - maskTruncate, mask.length);
-        const restMaskfy = (0, exports.maskfy)(valueRest, { mask: maskRest });
+        const restMaskfy = maskfy(valueRest, { mask: maskRest });
         valueFinal.push(restMaskfy);
     }
     if (reverse) {
@@ -80,4 +77,3 @@ const maskfy = (value, options = {}) => {
     }
     return valueFinal.join('');
 };
-exports.maskfy = maskfy;

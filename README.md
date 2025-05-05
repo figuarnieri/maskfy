@@ -1,4 +1,4 @@
-# Maskfy (2.0.0) - Input Mask Simple
+# Maskfy (3.0.0) - Input Mask Simple
 A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, IE Compatibility, it's also well accepted on mobile devices
 ## Install / Usage
 Add Maskfy file
@@ -57,4 +57,4 @@ If necessary, you could add attributes in the tag, to configure your mask option
 
 ## License
 The MIT License
-Copyright 2018 © [Filipe Guarnieri](https://figuarnieri.github.io/)
+Copyright since 2018 © [Filipe Guarnieri](https://figuarnieri.github.io/)

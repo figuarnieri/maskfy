@@ -1,148 +1,272 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <title>Maskfy 3 - Simple, No Dependences, Mobile Compatibility, Only 1kb (gzip)</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/x-icon" href="./assets/favicon.ico">
-  <link rel="stylesheet" href="./assets/style.css">
-</head>
-<body>
-  <div class="full">
-    <div class="fullwrap">
-      <div class="wrap-social">
-        <a href="https://github.com/figuarnieri/maskfy" class="btn github" target="_blank" aria-label="Button to repository on GitHub.com">GitHub</a>
-        <a href="https://github.com/figuarnieri/maskfy/archive/master.zip" class="btn download" target="_blank" aria-label="Download button">Download</a>
-        <a href="https://www.npmjs.com/package/maskfy" class="btn github" target="_blank" aria-label="Button to repository on npm js">npm</a>
-        <a href="https://www.npmjs.com/package/react-maskfy" class="btn github" target="_blank" aria-label="Button to repository on React Maskfy">React</a>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Maskfy 3 - Simple, No Dependences, Mobile Compatibility, Only 1kb (gzip)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/x-icon" href="./assets/favicon.ico" />
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+  <body>
+    <div class="full">
+      <div class="fullwrap">
+        <div class="wrap-social">
+          <a
+            href="https://github.com/figuarnieri/maskfy"
+            class="btn github"
+            target="_blank"
+            aria-label="Button to repository on GitHub.com"
+            >GitHub</a
+          >
+          <a
+            href="https://github.com/figuarnieri/maskfy/archive/master.zip"
+            class="btn download"
+            target="_blank"
+            aria-label="Download button"
+            >Download</a
+          >
+          <a
+            href="https://www.npmjs.com/package/maskfy"
+            class="btn github"
+            target="_blank"
+            aria-label="Button to repository on npm js"
+            >npm</a
+          >
+          <a
+            href="https://www.npmjs.com/package/react-maskfy"
+            class="btn github"
+            target="_blank"
+            aria-label="Button to repository on React Maskfy"
+            >React</a
+          >
+        </div>
+      </div>
+      <svg class="logo-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 281.1 176.7">
+        <text class="logo-version">3.0.0</text>
+        <path class="key key0 st0" />
+        <path class="key key1 st0" />
+        <path class="key key2 st0" />
+        <path class="key key3 st0" />
+        <path class="key key4 st1" />
+        <path class="key key5 st1" />
+        <path class="key key6 st1" />
+        <path class="key key7 st1" />
+        <g class="logo-mask">
+          <path class="st2 logo-mask-left" />
+          <path class="st4 logo-mask logo-mask-right" />
+          <path class="st5 logo-mask logo-mask-m" />
+        </g>
+      </svg>
+      <div class="full--subtitle">
+        Simple, No Dependences, Mobile Compatibility, IE Compatibility
+        <span class="full--subtitle-strong">Only 1kb (gzip)</span> = ♥
       </div>
     </div>
-    <svg class="logo-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 281.1 176.7">
-      <text class="logo-version">3.0.0</text>
-      <path class="key key0 st0"/>
-      <path class="key key1 st0"/>
-      <path class="key key2 st0"/>
-      <path class="key key3 st0"/>
-      <path class="key key4 st1"/>
-      <path class="key key5 st1"/>
-      <path class="key key6 st1"/>
-      <path class="key key7 st1"/>
-      <g class="logo-mask">
-        <path class="st2 logo-mask-left"/>
-        <path class="st4 logo-mask logo-mask-right"/>
-        <path class="st5 logo-mask logo-mask-m"/>
-      </g>
-    </svg>
-    <div class="full--subtitle">Simple, No Dependences, Mobile Compatibility, IE Compatibility <span class="full--subtitle-strong">Only 1kb (gzip)</span> = ♥</div>
-  </div>
-  <div class="page">
-    <h1 class="page--bigtitle">Maskfy 3 - Input Mask Simple</h1>
-    <p>A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, IE Compatibility, it's also well accepted on mobile devices</p>
-    <div class="page--contain">
-      <h2 class="page--title">Install / Usage</h2>
-      <p>Add Maskfy file</p>
-      <code><span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"https://cdn.rawgit.com/figuarnieri/maskfy/master/maskfy.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</span>
-or
-<span data-clipboard>&lt;<span class="page--tag">script</span> <span class="page--attr">src</span>=<span class="page--value">"path/js/maskfy.es5.js"</span>&gt;&lt;/<span class="page--tag">script</span>&gt;</code>
-      <h3 class="page--subtitle">HTML <small class="page--subtitle-small">(by class or attribute)</small></h3>
-      <p>Insert a selector in class tag</p>
-      <code><span data-clipboard>&lt;<span class="page--tag">input</span> <span class="page--attr">class</span>=<span class="page--value">"page--input"</span> <span class="page--important">data-maskfy="999.999.999-99"</span> <span class="page--attr">type</span>=<span class="page--value">"text"</span> <span class="page--attr">placeholder</span>=<span class="page--value">"CPF (Ex.: 999.999.999-99)"</span>&gt;</span>
-or
-<span data-clipboard>&lt;<span class="page--tag">input</span> <span class="page--attr">class</span>=<span class="page--value">"page--input <span class="page--important">mask-by-class</span>"</span> <span class="page--attr">type</span>=<span class="page--value">"text"</span> <span class="page--attr">placeholder</span>=<span class="page--value">"CPF (Ex.: 999.999.999-99)"</span>&gt;</span></code>
-      <h3 class="page--subtitle">Javascript Options</h3>
-<code data-clipboard>&lt;<span class="page--tag">script</span>&gt;
-  <span class="page--tag">new</span> <span class="page--value">Maskfy({</span>
-    <span data-clipboard><span class="page--attr">tag</span>: <span class="page--value">'[data-maskfy]'</span>, //{String: undefined} (required) selector input</span>
-    <span data-clipboard><span class="page--attr">mask</span>: <span class="page--value">'999.999.999,99'</span>, //{String: undefined} (required) input mask pattern</span>
-    <span data-clipboard><span class="page--attr">reverse</span>: <span class="page--value">false</span>, //{Boolean: false} reverse typing</span>
-    <span data-clipboard><span class="page--attr">minSize</span>: <span class="page--value">3</span> //{Boolean: false} minimum digits</span>
-    <span data-clipboard><span class="page--attr">defaultValue</span>: <span class="page--value">'123'</span> //{String: undefined} initial value</span>
-    <span data-clipboard><span class="page--attr">letters</span>: <span class="page--value">true</span> //{Boolean: false} allowed letters</span>
-    <span data-clipboard><span class="page--attr">after</span>: <span class="page--value">(input) => console.log(input)</span> //{Function: undefined} after input event</span>
-  <span class="page--value">})</span>;
-&lt;/<span class="page--tag">script</span>&gt;</code>
-    </div>
-    <div class="page--contain">
-      <h2 class="page--title">Examples</h2>
-      <div class="page--form">
-        <div class="page--label">
-          <label for="Money">Money</label>
-        </div>
-        <div class="page--field">
-          <input id="Money" class="page--input mask-by-class" data-maskfy="999.999.999.999,99"  data-maskfy-reverse="true" data-maskfy-minsize="3" type="text" value="000">
-        </div>
-        <div class="page--label">
-          <label for="CPF">CPF</label>
-        </div>
-        <div class="page--field">
-          <input id="CPF" class="page--input" data-maskfy="999.999.999-99" type="text" placeholder="CPF (Ex.: 999.999.999-99)">
-        </div>
-        <div class="page--label">
-          <label for="MoneySet">Money Set</label>
-        </div>
-        <div class="page--field">
-          <input id="MoneySet" class="page--input" data-maskfy="999.999.999.999,99" data-maskfy-reverse="true" data-maskfy-minsize="4" type="text" value="2.015,42">
-        </div>
-        <div class="page--label">
-          <label for="Phone">Phone BR</label>
-        </div>
-        <div class="page--field">
-          <input id="Phone" class="page--input" data-maskfy="(99) 99999-9999" type="text">
-        </div>
-        <div class="page--label">
-          <label for="Phone I11l">Phone US</label>
-        </div>
-        <div class="page--field">
-          <input id="Phone I11l" class="page--input" data-maskfy="+ 1 - 541 - 754 - 3010" type="text" value="">
-        </div>
-        <div class="page--label">
-          <label for="Date">Date</label>
-        </div>
-        <div class="page--field">
-          <input id="Date" class="page--input" data-maskfy="99/99/9999" type="text">
-        </div>
-        <div class="page--label">
-            <label for="Plate">Vehicle Plate</label>
+    <div class="page">
+      <h1 class="page--bigtitle">Maskfy 3 - Mask Simple</h1>
+      <p>
+        A Javascript library without a dependencies... Compatibility with Vanilla, React, Vue, Angular and wherever.
+        With only 1kb (gzip) code. It's also well accepted on mobile devices
+      </p>
+      <div class="page--contain">
+        <h2 class="page--title">Install / Usage</h2>
+        <p>Add Maskfy file</p>
+        <!-- <script type="module">
+        import { maskfy } from './dist/maskfy.js'
+        document.querySelector('#Plate').addEventListener('input', (e) => {
+          const valueMask = maskfy(e.target.value, {mask: 'AAA 9A99'});
+          e.target.value = valueMask.toUpperCase();
+        });
+      </script> -->
+        <code style="white-space: normal">
+          <span data-clipboard>
+            &lt;<span class="page--tag">script</span> <span class="page--attr">type</span>=<span class="page--value"
+              >"module"</span
+            >&gt;<br />&nbsp;&nbsp;import { maskfy } from './dist/maskfy.js'<br />
+            &nbsp;&nbsp;document.querySelector('#Plate').addEventListener('input', (e) => {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const valueMask = maskfy(e.target.value, {mask: 'AAA 9A99'});<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;e.target.value = valueMask.toUpperCase();<br />
+            &nbsp;&nbsp;});<br />
+            &lt;/<span class="page--tag">script</span>&gt;</span
+          >
+          <br /><br />
+          or
+          <br /><br />
+          <span data-clipboard
+            >&lt;<span class="page--tag">script</span> <span class="page--attr">type</span>=<span class="page--value"
+              >"module"</span
+            >&gt;<br />
+            &nbsp;&nbsp;import { maskfy } from
+            'https://raw.githubusercontent.com/figuarnieri/maskfy/refs/heads/master/dist/maskfy.js'<br />
+            &nbsp;&nbsp;document.querySelector('#Plate').addEventListener('input', (e) => {<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;const valueMask = maskfy(e.target.value, {mask: 'AAA 9A99'});<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;e.target.value = valueMask.toUpperCase();<br />
+            &nbsp;&nbsp;});<br />&lt;/<span class="page--tag">script</span>&gt;</span
+          ></code
+        >
+        <h3 class="page--subtitle">HTML <small class="page--subtitle-small">(by class or attribute)</small></h3>
+        <p>Insert a selector in class tag</p>
+        <code>Coming soon</code>
+        <h3 class="page--subtitle">Javascript Options</h3>
+        <code data-clipboard>Coming soon</code>
+      </div>
+      <div class="page--contain">
+        <h2 class="page--title">Examples</h2>
+        <div class="page--form">
+          <div class="page--label">
+            <label for="Money">Money</label>
           </div>
           <div class="page--field">
-            <input id="Plate" class="page--input" data-maskfy="999-9999" data-maskfy-letters="true" type="text">
+            Coming soon
+            <!-- <input
+              id="Money"
+              class="page--input mask-by-class"
+              data-maskfy="999.999.999.999,99"
+              data-maskfy-reverse="true"
+              data-maskfy-minsize="3"
+              type="text"
+              value="000"
+            /> -->
+          </div>
+          <div class="page--label">
+            <label for="CPF">CPF</label>
+          </div>
+          <div class="page--field">
+            Coming soon
+            <!-- <input
+              id="CPF"
+              class="page--input"
+              data-maskfy="999.999.999-99"
+              type="text"
+              placeholder="CPF (Ex.: 999.999.999-99)"
+            /> -->
+          </div>
+          <div class="page--label">
+            <label for="MoneySet">Money Set</label>
+          </div>
+          <div class="page--field">
+            Coming soon
+            <!-- <input
+              id="MoneySet"
+              class="page--input"
+              data-maskfy="999.999.999.999,99"
+              data-maskfy-reverse="true"
+              data-maskfy-minsize="4"
+              type="text"
+              value="2.015,42"
+            /> -->
+          </div>
+          <div class="page--label">
+            <label for="Phone">Phone BR</label>
+          </div>
+          <div class="page--field">
+            Coming soon
+            <!-- <input id="Phone" class="page--input" data-maskfy="(99) 99999-9999" type="text" /> -->
+          </div>
+          <div class="page--label">
+            <label for="Phone I11l">Phone US</label>
+          </div>
+          <div class="page--field">
+            Coming soon
+            <!-- <input id="Phone I11l" class="page--input" data-maskfy="+ 1 - 541 - 754 - 3010" type="text" value="" /> -->
+          </div>
+          <div class="page--label">
+            <label for="Date">Date</label>
+          </div>
+          <div class="page--field">
+            Coming soon
+            <!-- <input id="Date" class="page--input" data-maskfy="99/99/9999" type="text" /> -->
+          </div>
+          <div class="page--label">
+            <label for="Plate">Vehicle Plate BR</label>
+          </div>
+          <div class="page--field">
+            <input id="Plate" class="page--input" data-maskfy="999-9999" data-maskfy-letters="true" type="text" />
           </div>
         </div>
+      </div>
+      <div class="page--contain">
+        <h2 class="page--title">HTML attributes <small class="page--subtitle-small">[data-*]</small></h2>
+        <p>Coming soon</p>
+        <!-- <h3 class="page--subtitle">data-maskfy</h3>
+        <code data-clipboard="data"
+          >&lt;<span class="page--tag">input</span>
+          <span class="page--important">data-maskfy="999.999.999,99"</span>&gt;</code
+        >
+        <h3 class="page--subtitle">data-maskfy-reverse</h3>
+        <code data-clipboard="data"
+          >&lt;<span class="page--tag">input</span> <span class="page--attr">data-maskfy</span>=<span
+            class="page--value"
+            >"999.999.999,99"</span
+          >
+          <span class="page--important">data-maskfy-reverse="true"</span>&gt;</code
+        >
+        <h3 class="page--subtitle">data-maskfy-minsize</h3>
+        <code data-clipboard="data"
+          >&lt;<span class="page--tag">input</span> <span class="page--attr">data-maskfy</span>=<span
+            class="page--value"
+            >"999.999.999,99"</span
+          >
+          <span class="page--attr">data-maskfy-reverse</span>=<span class="page--value">"true"</span>
+          <span class="page--important">data-maskfy-minsize="3"</span>&gt;</code
+        >
+        <h3 class="page--subtitle">data-letters</h3>
+        <code data-clipboard="data"
+          >&lt;<span class="page--tag">input</span> <span class="page--attr">data-maskfy</span>=<span
+            class="page--value"
+            >"999-9999"</span
+          >
+          <span class="page--important">data-maskfy-letters="true"</span>&gt;</code
+        >
+        <h3 class="page--subtitle">default value</h3>
+        <code data-clipboard="data"
+          >&lt;<span class="page--tag">input</span> <span class="page--attr">data-maskfy</span>=<span
+            class="page--value"
+            >"999.999.999,99"</span
+          >
+          <span class="page--important">value="123.456.789,01"</span>&gt;</code
+        > -->
+      </div>
+      <div class="page--contain">
+        <h2 class="page--title">Source</h2>
+        <p>
+          <a href="https://github.com/figuarnieri/maskfy" target="_blank">Github</a> |
+          <a href="https://twitter.com/figuarnieri" target="_blank">@figuarnieri</a>
+        </p>
+      </div>
+      <div class="page--contain">
+        <h2 class="page--title">License</h2>
+        <p>
+          The MIT License<br />
+          Copyright since from 2018 <sup>&copy;</sup>
+          <a href="https://figuarnieri.github.io/" target="_blank">Filipe Guarnieri</a>
+        </p>
+      </div>
     </div>
-    <div class="page--contain">
-      <h2 class="page--title">HTML attributes  <small class="page--subtitle-small">[data-*]</small></h2>
-      <p>If necessary, you could add attributes in the tag, to configure your mask options</p>
-      <h3 class="page--subtitle">data-maskfy</h3>
-      <code data-clipboard="data">&lt;<span class="page--tag">input</span> <span class="page--important">data-maskfy="999.999.999,99"</span>&gt;</code>
-      <h3 class="page--subtitle">data-maskfy-reverse</h3>
-      <code data-clipboard="data">&lt;<span class="page--tag">input</span> <span class="page--attr">data-maskfy</span>=<span class="page--value">"999.999.999,99"</span> <span class="page--important">data-maskfy-reverse="true"</span>&gt;</code>
-      <h3 class="page--subtitle">data-maskfy-minsize</h3>
-      <code data-clipboard="data">&lt;<span class="page--tag">input</span> <span class="page--attr">data-maskfy</span>=<span class="page--value">"999.999.999,99"</span> <span class="page--attr">data-maskfy-reverse</span>=<span class="page--value">"true"</span> <span class="page--important">data-maskfy-minsize="3"</span>&gt;</code>
-      <h3 class="page--subtitle">data-letters</h3>
-      <code data-clipboard="data">&lt;<span class="page--tag">input</span> <span class="page--attr">data-maskfy</span>=<span class="page--value">"999-9999"</span> <span class="page--important">data-maskfy-letters="true"</span>&gt;</code>
-      <h3 class="page--subtitle">default value</h3>
-      <code data-clipboard="data">&lt;<span class="page--tag">input</span> <span class="page--attr">data-maskfy</span>=<span class="page--value">"999.999.999,99"</span> <span class="page--important">value="123.456.789,01"</span>&gt;</code>
-    </div>
-    <div class="page--contain">
-      <h2 class="page--title">Source</h2>
-      <p>
-        <a href="https://github.com/figuarnieri/maskfy" target="_blank">Github</a> | <a href="https://twitter.com/figuarnieri" target="_blank">@figuarnieri</a>
-      </p>
-    </div>
-    <div class="page--contain">
-      <h2 class="page--title">License</h2>
-      <p>
-        The MIT License<br>
-        Copyright 2018 <sup>&copy;</sup> <a href="https://figuarnieri.github.io/" target="_blank">Filipe Guarnieri</a>
-      </p>
-    </div>
-  </div>
-  <script src="maskfy.js"></script>
 
-  <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
-  <script>const clipcode=new Clipboard('[data-clipboard]',{target:(e)=>{e.setAttribute('data-clipboard-copy','');return document.querySelector(e.dataset.clipboard==='data'?'[data-clipboard-copy] .page--important':'[data-clipboard-copy]')}});clipcode.on('success',(e)=>{e.trigger.removeAttribute('data-clipboard-copy');});</script>
-  <script>
-  new Maskfy({tag:'[data-maskfy]'});
+    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
+    <script>
+      const clipcode = new Clipboard('[data-clipboard]', {
+        target: (e) => {
+          e.setAttribute('data-clipboard-copy', '');
+          return document.querySelector(
+            e.dataset.clipboard === 'data' ? '[data-clipboard-copy] .page--important' : '[data-clipboard-copy]'
+          );
+        },
+      });
+      clipcode.on('success', (e) => {
+        e.trigger.removeAttribute('data-clipboard-copy');
+      });
+    </script>
+    <script type="module">
+      import { maskfy } from './dist/maskfy.js';
+      document.querySelector('#Plate').addEventListener('input', (e) => {
+        const valueMask = maskfy(e.target.value, { mask: 'AAA 9A99' });
+        e.target.value = valueMask.toUpperCase();
+      });
+    </script>
+    <script>
+      /* new Maskfy({tag:'[data-maskfy]'});
   new Maskfy({
     tag:'#Plate',
     after:(input, type)=>input.addEventListener('input',e=>{
@@ -154,9 +278,9 @@ or
       }
       input.value =_value.join('');
     })
-  });
-  </script>
-</body>
+  }); */
+    </script>
+  </body>
 </html>
 <!-- 
 <!DOCTYPE html>
