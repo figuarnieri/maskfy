@@ -1,28 +1,39 @@
 {
   "name": "maskfy",
-  "version": "2.0.1",
+  "version": "3.0.0",
   "description": "A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, it's also well accepted on mobile devices",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "main": "dist/maskfy.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/figuarnieri/maskfy.git"
   },
-  "keywords": [
-    "1kb",
-    "inputmask",
-    "input-mask",
-    "javascript",
-    "nojquery",
-    "data-mask",
-    "1kb"
-  ],
   "author": "figuarnieri",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/figuarnieri/maskfy/issues"
   },
-  "homepage": "https://github.com/figuarnieri/maskfy#readme"
+  "homepage": "https://github.com/figuarnieri/maskfy#readme",
+  "keywords": [
+    "inputmask",
+    "input-mask",
+    "javascript",
+    "nojquery",
+    "data-mask",
+    "1kb",
+    "maskfy"
+  ],
+  "type": "module",
+  "scripts": {
+    "test": "jest",
+    "build": "tsc --project tsconfig.json"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.26.10",
+    "@babel/preset-env": "^7.26.9",
+    "@babel/preset-typescript": "^7.27.0",
+    "@types/jest": "^29.5.14",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.3.2"
+  }
 }

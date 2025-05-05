@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "esnext",
+    "lib": [
+      "dom",
+      "esnext"
+    ],
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "strict": true,
+    "noImplicitAny": false,
+    "allowJs": true,
+    "isolatedModules": true
+  },
+  "exclude": [
+    "__tests__",
+    "node_modules",
+    "types",
+    "babel.config.js"
+  ]
+}
