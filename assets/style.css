@@ -35,6 +35,25 @@ body {
     opacity: 1;
   }
 }
+pre {
+  background-color: #333;
+  border-radius: 4px;
+  color: #ddd;
+  padding: 4px 4px 4px;
+  margin-bottom: 8px;
+  &:before {
+    content: '';
+    width: 48px;
+    height: 12px;
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: 12px;
+    background-image: radial-gradient(at center, #f04 4px, transparent 5px),
+      radial-gradient(at center, #fb0 4px, transparent 5px), radial-gradient(at center, #af0 4px, transparent 5px);
+    background-position: 0 0, 18px 0, 36px;
+    margin-bottom: 4px;
+  }
+}
 .fullwrap {
   width: 100%;
   position: absolute;
@@ -199,9 +218,16 @@ body {
   padding: 10px;
   border-radius: 4px;
 }
+.page--title {
+  margin-bottom: 4px;
+  font-size: 32px;
+}
 .page--subtitle {
-  margin-top: 20px;
+  margin-bottom: 8px;
   font-size: 20px;
+}
+.page--paragraph {
+  margin-bottom: 16px;
 }
 .page--subtitle-small {
   font-size: 15px;
@@ -221,14 +247,6 @@ body {
 .page--field {
   width: 80%;
   margin-bottom: 10px;
-}
-.page code {
-  background-color: #222;
-  display: block;
-  padding: 5px;
-  color: #fff;
-  border-radius: 3px;
-  white-space: pre;
 }
 .page--tag {
   color: #f92672;
