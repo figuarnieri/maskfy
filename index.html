@@ -289,7 +289,7 @@ maskfy(value, options);
       });
     </script>
     <script type="module">
-      import { maskfy } from './dist/esm/maskfy.js';
+      import { maskfy } from './dist/maskfy.esm.js';
       document.querySelector('#Prefix').addEventListener('input', (e) => {
         const valueMask = maskfy(e.target.value, { mask: '999.999', prefix: 'm² ' });
         e.target.value = valueMask.toUpperCase();
@@ -317,34 +317,6 @@ maskfy(value, options);
     </script>
     <script>
       hljs.highlightAll();
-    </script>
-
-    <script type="module">
-      import { maskfy } from './dist/maskfy.js';
-      document.querySelector('#Prefix').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '999.999', prefix: 'm² ' });
-        e.target.value = valueMask.toUpperCase();
-      });
-      document.querySelector('#Money').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '999.999.999,99', reverse: true });
-        e.target.value = valueMask.toUpperCase();
-      });
-      document.querySelector('#CPF').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '999.999.999-99' });
-        e.target.value = valueMask.toUpperCase();
-      });
-      document.querySelector('#Phone').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '(99) 9999-9999' });
-        e.target.value = valueMask.toUpperCase();
-      });
-      document.querySelector('#Date').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '99/99/9999' });
-        e.target.value = valueMask.toUpperCase();
-      });
-      document.querySelector('#Plate').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: 'AAA 9A99' });
-        e.target.value = valueMask.toUpperCase();
-      });
     </script>
     <!--  -->
 
