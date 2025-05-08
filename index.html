@@ -127,73 +127,134 @@ maskfy(value, options);
         <h2 class="page--title">Parameters</h2>
         <h3 class="page--subtitle">value</h3>
         <p class="page--paragraph">String to which the mask will be applied</p>
-        <h3 class="page--subtitle">options</h3>
+        <h3 class="page--subtitle">options <sup class="page--tiny-description">optional</sup></h3>
         <p class="page--paragraph">Object used to configure the mask</p>
-        <table>
+        <table class="page--table">
           <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Description</th>
+            <th class="page--table-header">Name</th>
+            <th class="page--table-header">Type</th>
+            <th class="page--table-header">Default</th>
+            <th class="page--table-header">Description</th>
+          </tr>
+
+          <tr>
+            <td class="page--table-data">mask</td>
+            <td class="page--table-data">string</td>
+            <td class="page--table-data">'999.999.999.999'</td>
+            <td class="page--table-data">String for mask implementation</td>
           </tr>
           <tr>
-            <td>mask</td>
-            <td>string</td>
-            <td>Coming soon</td>
+            <td class="page--table-data">reverse</td>
+            <td class="page--table-data">boolean</td>
+            <td class="page--table-data">false</td>
+            <td class="page--table-data">
+              Applies the mask with character reversal. Commonly used for price formatting
+            </td>
           </tr>
           <tr>
-            <td>reverse</td>
-            <td>boolean</td>
-            <td>Coming soon</td>
+            <td class="page--table-data">keybind</td>
+            <td class="page--table-data" width="200">
+              {<br />
+              &nbsp;&nbsp;[key: String]: RegExp<br />
+              }
+            </td>
+            <td class="page--table-data" width="250">
+              {<br />
+              &nbsp;&nbsp;mask: '999.999.999.999,99',<br />
+              &nbsp;&nbsp;reverse: true,<br />
+              &nbsp;&nbsp;keybind: {<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;A: /[A-Za-z]/,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;9: /\d/,<br />
+              &nbsp;&nbsp;&nbsp;&nbsp;'?': /./,<br />
+              &nbsp;&nbsp;},<br />
+              &nbsp;&nbsp;prefix: 'US$ ',<br />
+              &nbsp;&nbsp;suffix: ' %'<br />
+              }
+            </td>
+            <td class="page--table-data">Object for implementing character patterns of a mask</td>
           </tr>
           <tr>
-            <td>keybind</td>
-            <td>RegExp</td>
-            <td>Coming soon</td>
+            <td class="page--table-data">prefix</td>
+            <td class="page--table-data">string</td>
+            <td class="page--table-data">''</td>
+            <td class="page--table-data">Prefix applied to the masked value</td>
           </tr>
           <tr>
-            <td>prefix</td>
-            <td>string</td>
-            <td>Coming soon</td>
-          </tr>
-          <tr>
-            <td>suffix</td>
-            <td>string</td>
-            <td>Coming soon</td>
+            <td class="page--table-data">suffix</td>
+            <td class="page--table-data">string</td>
+            <td class="page--table-data">''</td>
+            <td class="page--table-data">Suffix applied to the masked value</td>
           </tr>
         </table>
+        <h2 class="page--title">Usage</h2>
+        <pre class="codesnippet-js"><code class="language-javascript">maskfy(value, {
+  mask: '999.999.999.999,99',
+  reverse: true,
+  keybind: {
+    e: /\d/,
+  },
+  prefix: 'US$ ',
+  suffix: ' %',
+})</code></pre>
       </div>
       <div class="page--contain">
         <h2 class="page--title">Examples</h2>
         <div class="page--form">
-          <div class="page--label">
-            <label for="CPF">CPF</label>
+          <div class="page--form-item">
+            <label class="page--form-label">
+              <span>Prefix</span>
+              <input type="text" id="Prefix" value="" placeholder="" />
+            </label>
+            <p class="page--form-demo">m² 123.45</p>
           </div>
-          <div class="page--field">
-            <input id="CPF" class="page--input" type="text" placeholder="CPF (Ex.: 999.999.999-99)" />
+          <div class="page--form-item">
+            <label class="page--form-label">
+              <span>Phone</span>
+              <input type="text" id="Phone" value="" placeholder="" />
+            </label>
+            <p class="page--form-demo">(11) 92222-3333</p>
           </div>
-          <div class="page--label">
-            <label for="MoneySet">Money</label>
+          <div class="page--form-item">
+            <label class="page--form-label">
+              <span>Date</span>
+              <input type="text" id="Date" value="" placeholder="" />
+            </label>
+            <p class="page--form-demo">01/02/2030</p>
           </div>
-          <div class="page--field">
-            <input id="MoneySet" class="page--input" type="text" value="" />
+          <div class="page--form-item">
+            <label class="page--form-label">
+              <span>CPF</span>
+              <input type="text" id="CPF" value="" placeholder="" />
+            </label>
+            <p class="page--form-demo">111.222.333-44</p>
           </div>
-          <div class="page--label">
-            <label for="Phone">Phone BR</label>
+          <div class="page--form-item">
+            <label class="page--form-label">
+              <span>Phone API</span>
+              <input type="text" id="PhonAPI" value="" placeholder="" />
+            </label>
+            <p class="page--form-demo">+55 11911112222</p>
           </div>
-          <div class="page--field">
-            <input id="Phone" class="page--input" type="text" placeholder="(11) 2222-33333" />
+          <div class="page--form-item">
+            <label class="page--form-label">
+              <span>Vehicle Plate BR</span>
+              <input type="text" id="Plate" value="" placeholder="" />
+            </label>
+            <p class="page--form-demo">ABC 1D23</p>
           </div>
-          <div class="page--label">
-            <label for="Date">Date</label>
+          <div class="page--form-item">
+            <label class="page--form-label">
+              <span>Money</span>
+              <input type="text" id="Money" value="" placeholder="" />
+            </label>
+            <p class="page--form-demo">111.222.333.444,55</p>
           </div>
-          <div class="page--field">
-            <input id="Date" class="page--input" data-maskfy="99/99/9999" type="text" />
-          </div>
-          <div class="page--label">
-            <label for="Plate">Vehicle Plate BR</label>
-          </div>
-          <div class="page--field">
-            <input id="Plate" class="page--input" data-maskfy="999-9999" data-maskfy-letters="true" type="text" />
+          <div class="page--form-item">
+            <label class="page--form-label">
+              <span>Test</span>
+              <input type="text" id="Test" value="" placeholder="" />
+            </label>
+            <p class="page--form-demo">-</p>
           </div>
         </div>
       </div>
@@ -228,8 +289,12 @@ maskfy(value, options);
       });
     </script>
     <script type="module">
-      import { maskfy } from './dist/maskfy.js';
-      document.querySelector('#MoneySet').addEventListener('input', (e) => {
+      import { maskfy } from './dist/esm/maskfy.js';
+      document.querySelector('#Prefix').addEventListener('input', (e) => {
+        const valueMask = maskfy(e.target.value, { mask: '999.999', prefix: 'm² ' });
+        e.target.value = valueMask.toUpperCase();
+      });
+      document.querySelector('#Money').addEventListener('input', (e) => {
         const valueMask = maskfy(e.target.value, { mask: '999.999.999,99', reverse: true });
         e.target.value = valueMask.toUpperCase();
       });
@@ -253,62 +318,37 @@ maskfy(value, options);
     <script>
       hljs.highlightAll();
     </script>
-  </body>
-</html>
 
-<!--
-- Add description to options object
-- Add copy code button
-- Add input plugin with data-* attributes
-- Add Vue example
-- Add Angular example
-- Deprecated https://www.npmjs.com/package/react-maskfy project
+    <script type="module">
+      import { maskfy } from './dist/maskfy.js';
+      document.querySelector('#Prefix').addEventListener('input', (e) => {
+        const valueMask = maskfy(e.target.value, { mask: '999.999', prefix: 'm² ' });
+        e.target.value = valueMask.toUpperCase();
+      });
+      document.querySelector('#Money').addEventListener('input', (e) => {
+        const valueMask = maskfy(e.target.value, { mask: '999.999.999,99', reverse: true });
+        e.target.value = valueMask.toUpperCase();
+      });
+      document.querySelector('#CPF').addEventListener('input', (e) => {
+        const valueMask = maskfy(e.target.value, { mask: '999.999.999-99' });
+        e.target.value = valueMask.toUpperCase();
+      });
+      document.querySelector('#Phone').addEventListener('input', (e) => {
+        const valueMask = maskfy(e.target.value, { mask: '(99) 9999-9999' });
+        e.target.value = valueMask.toUpperCase();
+      });
+      document.querySelector('#Date').addEventListener('input', (e) => {
+        const valueMask = maskfy(e.target.value, { mask: '99/99/9999' });
+        e.target.value = valueMask.toUpperCase();
+      });
+      document.querySelector('#Plate').addEventListener('input', (e) => {
+        const valueMask = maskfy(e.target.value, { mask: 'AAA 9A99' });
+        e.target.value = valueMask.toUpperCase();
+      });
+    </script>
+    <!--  -->
 
-data-maskfy="999.999.999.999,99"
-data-maskfy-reverse="true"
-data-maskfy-minsize="4"
-data-maskfy-letters="true"
-
--->
-
-<!-- 
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <style>
-      form {
-        display: flex;
-      }
-    </style>
-    <title>Maskfy in HTML</title>
-  </head>
-  <body>
-    <form action="" id="">
-      <div>
-        <input type="text" id="special" value="" placeholder="Prefix" />
-        <p>m² 123.45</p>
-      </div>
-      <div>
-        <input type="text" id="phone" value="" placeholder="Phone" />
-        <p>11 952218817</p>
-      </div>
-      <div>
-        <input type="text" id="date" value="" placeholder="Phone" />
-        <p>01-01-2021</p>
-      </div>
-      <div>
-        <input type="text" id="api-phone" value="" placeholder="API Phone" />
-        <p>55 11 91234-5678</p>
-      </div>
-      <div>
-        <input type="text" id="price" value="" placeholder="Price" />
-        <p>12345678900</p>
-      </div>
-    </form>
-    <script src="https://unpkg.com/typescript@latest/lib/typescript.js"></script>
+    <!-- <script src="https://unpkg.com/typescript@latest/lib/typescript.js"></script>
     <script id="typescript-code" type="text/x.typescript" src="./maskfy.ts"></script>
     <script>
       const exports = {};
@@ -318,31 +358,27 @@ data-maskfy-letters="true"
         .then((e) => e.text())
         .then((e) => {
           const maskfy = window.eval(window.ts.transpile(e));
-          document.querySelector('#special').addEventListener('input', (e) => {
-            const valueMask = maskfy(e.target.value);
-            e.target.value = valueMask;
-          });
-          document.querySelector('#plate').addEventListener('input', (e) => {
-            const valueMask = maskfy(e.target.value, { mask: 'AAA-9999' });
-            e.target.value = valueMask;
-          });
-          document.querySelector('#phone').addEventListener('input', (e) => {
-            const valueMask = maskfy(e.target.value, { mask: '(99) 99999-9999' });
-            e.target.value = valueMask;
-          });
-          document.querySelector('#date').addEventListener('input', (e) => {
-            const valueMask = maskfy(e.target.value, { mask: '99/99/9999' });
-            e.target.value = valueMask;
-          });
-          document.querySelector('#api-phone').addEventListener('input', (e) => {
-            const valueMask = maskfy(e.target.value, { mask: '+9999999999999' });
-            e.target.value = valueMask;
-          });
-          document.querySelector('#price').addEventListener('input', (e) => {
-            const valueMask = maskfy(e.target.value, { mask: '999.999.999,99', reverse: true });
+          document.querySelector('#Test').addEventListener('input', (e) => {
+            const valueMask = maskfy(e.target.value, { mask: '999.999.999.999' });
             e.target.value = valueMask;
           });
         });
-    </script>
+    </script> -->
   </body>
-</html> -->
+</html>
+
+<!--
+- Create maskfy.min file
+- Add Vue example
+- Add Angular example
+- Add copy code button
+- Add input plugin with data-* attributes
+- Deprecated https://www.npmjs.com/package/react-maskfy project
+- Create release 3 on Github
+
+data-maskfy="999.999.999.999,99"
+data-maskfy-reverse="true"
+data-maskfy-minsize="4"
+data-maskfy-letters="true"
+
+-->

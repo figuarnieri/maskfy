@@ -15,10 +15,13 @@
     "isolatedModules": true,
     "baseUrl": "."
   },
+  "include": [
+    "src"
+  ],
   "exclude": [
     "__tests__",
     "node_modules",
-    "types",
+    "src/types",
     "babel.config.js"
   ]
 }

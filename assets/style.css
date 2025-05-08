@@ -233,9 +233,34 @@ pre {
   font-size: 15px;
 }
 .page--form {
-  display: flex;
+  display: grid;
   flex-flow: wrap;
   align-items: center;
+  gap: 16px;
+  grid-template-columns: repeat(3, 1fr);
+}
+.page--form-item {
+  text-align: right;
+  flex: 1;
+}
+.page--form-label {
+  background-color: #0001;
+  padding: 6px 6px 6px 8px;
+  display: block;
+  border-radius: 4px;
+}
+.page--form-label input {
+  border-radius: 4px;
+  padding: 6px 2px;
+  margin-left: 8px;
+  width: 70%;
+  border: 0;
+}
+.page--form-demo {
+  font-size: 11px;
+}
+.page--form-demo:before {
+  content: 'Ex.: ';
 }
 .page--label {
   width: 20%;
@@ -262,6 +287,62 @@ pre {
   font-weight: bold;
   font-style: italic;
 }
+.page--table {
+  width: 60%;
+  border-collapse: collapse;
+  background-color: #fff;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 24px;
+  &tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+}
+.page--table tr:last-child td:first-child {
+  border-radius: 0 0 0 4px;
+}
+.page--table tr:last-child td:last-child {
+  border-radius: 0 0 4px 0;
+}
+.page--table-header {
+  background-color: #333;
+  color: white;
+  text-align: left;
+  padding: 12px 15px;
+  font-size: 16px;
+  font-weight: 600;
+  + .page--table-header {
+    border-left: 1px solid #0001;
+  }
+  &:first-child {
+    border-radius: 4px 0 0;
+  }
+  &:last-child {
+    border-radius: 0 4px 0 0;
+  }
+}
+.page--table-data {
+  padding: 12px 15px;
+  text-align: left;
+  background-color: #262626;
+  color: #dab997;
+  border-top: 1px dashed #8a8a8a33;
+  + .page--table-data {
+    border-left: 1px dashed #8a8a8a;
+  }
+}
+.page--tiny-description {
+  border-radius: 10px;
+  font-size: 9px;
+  background-color: #999;
+  color: #fff;
+  padding: 2px 8px 4px;
+  border: 1px solid #888;
+}
+.page--code-fake {
+  white-space: pre;
+}
+
 @media (max-width: 768px) {
   .full {
     padding: 20px 10px;
