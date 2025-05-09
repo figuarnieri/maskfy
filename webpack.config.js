@@ -17,7 +17,7 @@ export default [
   {
     ...baseConfig,
     output: {
-      filename: 'maskfy.cjs.js',
+      filename: 'cjs/maskfy.js',
       path: path.resolve(__dirname, 'dist'),
       library: { type: 'commonjs2' },
       clean: true,
@@ -27,7 +27,7 @@ export default [
   {
     ...baseConfig,
     output: {
-      filename: 'maskfy.esm.js',
+      filename: 'esm/maskfy.js',
       path: path.resolve(__dirname, 'dist'),
       library: { type: 'module' },
       clean: false,
@@ -40,7 +40,7 @@ export default [
   {
     ...baseConfig,
     output: {
-      filename: 'maskfy.amd.js',
+      filename: 'amd/maskfy.js',
       path: path.resolve(__dirname, 'dist'),
       library: { type: 'amd' },
       clean: false,
