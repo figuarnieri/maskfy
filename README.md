@@ -1,60 +1,150 @@
-# Maskfy (3.0.0) - Input Mask Simple
-A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, IE Compatibility, it's also well accepted on mobile devices
-## Install / Usage
-Add Maskfy file
-```html
-<script src="https://cdn.rawgit.com/figuarnieri/maskfy/master/maskfy.js"></script>
-or
-<script src="path/js/maskfy.es5.js"></script>
+# Maskfy (3.0.0) - Mask Simple
+A Javascript library without a dependencies... Compatibility with Vanilla, React and wherever. With only 1kb (gzip) code. It's also well accepted on mobile devices
+
+## Install
+
+### Node modules
+
+```sh
+npm i maskfy
 ```
-### HTML _(by class or attribute)_
-Insert a selector in class tag
-```html
-<input class="page--input" data-maskfy="999.999.999-99" type="text" placeholder="CPF (Ex.: 999.999.999-99)">
+
 or
-<input class="page--input mask-by-class" type="text" placeholder="CPF (Ex.: 999.999.999-99)">
+
+```sh
+yarn add maskfy
 ```
-### Javascript Options
-```javascript
-<script>
-  new Maskfy({
-    tag: '[data-maskfy]', //{String: undefined} (required) selector input
-    mask: '999.999.999,99', //{String: undefined} (required) input mask pattern
-    reverse: true, //{Boolean: false} reverse typing
-    minSize: 3 //{Number: false} minimum digits
-    defaultValue: '123' //{String: undefined} initial value
-    letters: true //{Boolean: false} allowed letters
-    after: (input) => console.log(input) //{Function: undefined} after input event
+
+## Usage
+
+### React
+
+```jsx
+import { maskfy } from 'maskfy';
+import { useState } from 'react';
+
+...
+
+const [stateValue, setStateValue] = useState('')
+
+...
+
+const handleInput = (e) => {
+  const { value } = e.currentTarget;
+  const valueWithMask = maskfy(value, { mask: '(99) 9999-9999' });
+  setStateValue(valueWithMask);
+}
+
+...
+
+<input name="phone" value={stateValue} onInput={handleInput} />
+```
+
+### Vue
+```sh
+// Coming soon
+```
+
+### Angular
+```sh
+// Coming soon
+```
+
+### ES Module
+```html
+<input id="phone" />
+
+...
+
+<script type="module">
+  import { maskfy } from './dist/esm/index.js'
+
+  document.querySelector('#phone').addEventListener('input', (e) => {
+    const valueMask = maskfy(e.target.value, { mask: '(99) 9999-9999' });
+    e.target.value = valueMask.toUpperCase();
   });
 </script>
 ```
-## HTML attributes [data-*]
-If necessary, you could add attributes in the tag, to configure your mask options
 
-### data-maskfy
+### Vanilla
 ```html
-<input data-maskfy="999.999.999,99">
+<input id="phone" />
+
+...
+
+<script src="./dist/vanilla/index.js" type="text/javascript"></script>
+<script>
+  document.querySelector('#phone').addEventListener('input', (e) => {
+    const valueMask = window.Maskfy(e.target.value, { mask: '(99) 9999-9999' });
+    e.target.value = valueMask.toUpperCase();
+  });
+</script>
 ```
-### data-maskfy-reverse
-```html
-<input data-maskfy="999.999.999,99" data-maskfy-reverse="true">
+
+## Syntax
+
+```jsx
+maskfy(value);
+maskfy(value, options);
 ```
-### data-maskfy-minsize
-```html
-<input data-maskfy="999.999.999,99" data-maskfy-reverse="true" data-maskfy-minsize="3">
+
+### Parameters
+
+#### value
+String to which the mask will be applied (optional)
+
+#### options `optional`
+Object used to configure the mask
+
+| Name    | Type                      | Default             | Description                                                                  |
+| ------- | ------------------------- | ------------------- | ---------------------------------------------------------------------------- |
+| mask    | string                    | `'999.999.999.999'` | String for mask implementation                                               |
+| reverse | boolean                   | `false`             | Applies the mask with character reversal. Commonly used for price formatting |
+| keybind | { [key: String]: RegExp } | object *            | Object for implementing character patterns of a mask                         |
+| prefix  | string                    | `''`                | Prefix applied to the masked value                                           |
+| suffix  | string                    | `''`                | Suffix applied to the masked value                                           |
+
+```jsx
+// * Default keybind object
+{
+  mask: '999.999.999.999,99',
+  reverse: true,
+  keybind: {
+    A: /[A-Za-z]/,
+    9: /\d/,
+    '?': /./,
+  },
+  prefix: 'US$ ',
+  suffix: ' %'
+}
 ```
-### data-letters
-```html
-<input data-maskfy="999.999.999,99" data-maskfy-letters="true">
+
+## Coming soon
+- Support to Vue
+- Support to Angular
+- Add plugin to handle input elements with data-* attributes
+
+## Examples
+
+### Usage
+```jsx
+maskfy(value, {
+  mask: '999.999.999.999,99',
+  reverse: true,
+  keybind: {
+    e: /\d/,
+  },
+  prefix: 'US$ ',
+  suffix: ' %',
+})
 ```
-### default value
-```html
-<input data-maskfy="999.999.999,99" value="123.456.789,01">
-```
+
+### Site
+Access [figuarnieri.github.io/maskfy](https://figuarnieri.github.io/maskfy/)
 
 ## Source
-[Github](https://github.com/figuarnieri/maskfy) | [npm](https://www.npmjs.com/package/maskfy) | [React](https://www.npmjs.com/package/react-maskfy) | [Example](https://figuarnieri.github.io/maskfy/) | [@figuarnieri](https://twitter.com/figuarnieri)
+[Github](https://github.com/figuarnieri/maskfy) | [npm](https://www.npmjs.com/package/maskfy)
 
 ## License
 The MIT License
-Copyright since 2018 © [Filipe Guarnieri](https://figuarnieri.github.io/)
+created by [Filipe Guarnieri](https://figuarnieri.github.io/)

@@ -11,7 +11,7 @@
 
 import { IMaskfyOptions } from './types/index.d';
 
-export const MaskfyDefault = {
+const MaskfyDefault = {
   Mask: '999.999.999.999',
   Reverse: false,
   Keybind: { A: /[A-Za-z]/, 9: /\d/, '?': /./ },
@@ -19,7 +19,7 @@ export const MaskfyDefault = {
   Suffix: '',
 } as const;
 
-export const maskfySettings = (options: IMaskfyOptions = {}) => {
+const maskfySettings = (options: IMaskfyOptions = {}) => {
   const settings = {
     mask: MaskfyDefault.Mask,
     reverse: MaskfyDefault.Reverse,
@@ -31,7 +31,7 @@ export const maskfySettings = (options: IMaskfyOptions = {}) => {
   return settings;
 };
 
-export const maskfy = (value: string | number, options: IMaskfyOptions = {}) => {
+const maskfy = (value: string | number, options: IMaskfyOptions = {}) => {
   const settings = maskfySettings(options);
   const { mask, reverse, prefix, suffix, keybind } = settings;
   const valueString = String(value);
@@ -105,3 +105,9 @@ export const maskfy = (value: string | number, options: IMaskfyOptions = {}) => 
 
   return valueFinal.join('');
 };
+
+export { maskfy, maskfySettings, MaskfyDefault };
+
+if (typeof window !== 'undefined') {
+  window['Maskfy'] = maskfy;
+}

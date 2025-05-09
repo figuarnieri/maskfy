@@ -17,20 +17,18 @@ export default [
   {
     ...baseConfig,
     output: {
-      filename: 'cjs/maskfy.js',
-      path: path.resolve(__dirname, 'dist'),
+      filename: 'cjs/index.js',
+      path: path.resolve(__dirname, '../../dist'),
       library: { type: 'commonjs2' },
-      clean: true,
     },
     target: 'node',
   },
   {
     ...baseConfig,
     output: {
-      filename: 'esm/maskfy.js',
-      path: path.resolve(__dirname, 'dist'),
+      filename: 'esm/index.js',
+      path: path.resolve(__dirname, '../../dist'),
       library: { type: 'module' },
-      clean: false,
     },
     experiments: {
       outputModule: true,
@@ -40,10 +38,17 @@ export default [
   {
     ...baseConfig,
     output: {
-      filename: 'amd/maskfy.js',
-      path: path.resolve(__dirname, 'dist'),
+      filename: 'amd/index.js',
+      path: path.resolve(__dirname, '../../dist'),
       library: { type: 'amd' },
-      clean: false,
+    },
+    target: 'web',
+  },
+  {
+    ...baseConfig,
+    output: {
+      filename: 'vanilla/index.js',
+      path: path.resolve(__dirname, '../../dist'),
     },
     target: 'web',
   },

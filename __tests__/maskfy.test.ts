@@ -1,4 +1,4 @@
-import { MaskfyDefault, maskfy, maskfySettings } from '../maskfy';
+import { MaskfyDefault, maskfy, maskfySettings } from '../src/maskfy';
 
 describe('Maskfy', () => {
   describe('Settings', () => {

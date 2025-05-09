@@ -57,7 +57,7 @@
         </g>
       </svg>
       <div class="full--subtitle">
-        Simple, No Dependences and Compatibility with Vanilla, React, Vue, Angular, Mobile and etc...<br />
+        Simple, No Dependences and Compatibility with Vanilla, React, Mobile and etc...<br />
         <span class="full--subtitle-strong">Only 1kb (gzip)</span> = ♥
       </div>
     </div>
@@ -65,8 +65,8 @@
     <div class="page">
       <h1 class="page--bigtitle">Maskfy 3 - Mask Simple</h1>
       <p>
-        A Javascript library without a dependencies... Compatibility with Vanilla, React, Vue, Angular and wherever.
-        With only 1kb (gzip) code. It's also well accepted on mobile devices
+        A Javascript library without a dependencies... Compatibility with Vanilla, React and wherever. With only 1kb
+        (gzip) code. It's also well accepted on mobile devices
       </p>
       <div class="page--contain">
         <h2 class="page--title">Install</h2>
@@ -89,11 +89,9 @@ const [stateValue, setStateValue] = useState('')
 ...
 
 const handleInput = (e) => {
-const { value } = e.currentTarget;
-// value = 11 22223333
-const valueWithMask = maskfy(value, { mask: '(99) 9999-9999' });
-// valueWithMask = (11) 2222-3333
-setStateValue(valueWithMask);
+  const { value } = e.currentTarget;
+  const valueWithMask = maskfy(value, { mask: '(99) 9999-9999' });
+  setStateValue(valueWithMask);
 }
 
 ...
@@ -104,15 +102,34 @@ setStateValue(valueWithMask);
         <pre class="codesnippet-js"><code class="language-javascript">// Coming soon</code></pre>
 
         <h3 class="page--subtitle">Angular</h3>
+        <!-- import { Component, model } from '@angular/core';
+import { bootstrapApplication } from '@angular/platform-browser';
+
+@Component({
+  selector: 'app-root',
+  template: `<input (input)="handleInput($event)" value={{valueMask()}} />`,
+})
+
+export class AppComponent {
+  valueMask = model<string>();
+
+  handleInput(event: Event) {
+    const target = event.target as HTMLInputElement;
+    const value = target.value.replace(/\D/g, '');
+    this.valueMask.update(() => value);
+  }
+}
+
+bootstrapApplication(AppComponent); -->
         <pre class="codesnippet-js"><code class="language-javascript">// Coming soon</code></pre>
 
-        <h3 class="page--subtitle">CDN</h3>
-        <pre class="codesnippet-js"><code class="language-javascript">&lt;input id="phone" />
+        <h3 class="page--subtitle">ES Module</h3>
+        <pre class="codesnippet-js"><code class="language-html">&lt;input id="phone" />
 
 ...
 
 &lt;script type="module">
-  import { maskfy } from 'https://cdn.jsdelivr.net/gh/figuarnieri/maskfy@master/dist/maskfy.js'
+  import { maskfy } from './dist/esm/index.js'
 
   document.querySelector('#phone').addEventListener('input', (e) => {
     const valueMask = maskfy(e.target.value, { mask: '(99) 9999-9999' });
@@ -120,10 +137,22 @@ setStateValue(valueWithMask);
   });
 &lt;/script></code></pre>
 
+        <h3 class="page--subtitle">Vanilla</h3>
+        <pre class="codesnippet-js"><code class="language-html">&lt;input id="phone" />
+
+...
+
+&lt;script src="./dist/vanilla/index.js" type="text/javascript">&lt;/script>
+&lt;script>
+  document.querySelector('#phone').addEventListener('input', (e) => {
+    const valueMask = window.Maskfy(e.target.value, { mask: '(99) 9999-9999' });
+    e.target.value = valueMask.toUpperCase();
+  });
+&lt;/script></code></pre>
+
         <h2 class="page--title">Syntax</h2>
         <pre class="codesnippet-js"><code class="language-javascript">maskfy(value);
-maskfy(value, options);
-        </code></pre>
+maskfy(value, options);</code></pre>
         <h2 class="page--title">Parameters</h2>
         <h3 class="page--subtitle">value</h3>
         <p class="page--paragraph">String to which the mask will be applied</p>
@@ -259,6 +288,18 @@ maskfy(value, options);
         </div>
       </div>
       <div class="page--contain">
+        <h2 class="page--title">Coming soon</h2>
+        <ul>
+          <!-- Deprecated https://www.npmjs.com/package/react-maskfy project -->
+          <!-- Create release 3 on Github -->
+          <!-- Add copy code button -->
+          <!-- Add badges support -->
+          <li>Support to Vue</li>
+          <li>Support to Angular</li>
+          <li>Add plugin to handle input elements with data-* attributes</li>
+        </ul>
+      </div>
+      <div class="page--contain">
         <h2 class="page--title">Source</h2>
         <p>
           <a href="https://github.com/figuarnieri/maskfy" target="_blank">Github</a> |
@@ -274,6 +315,7 @@ maskfy(value, options);
       </div>
     </div>
 
+    <script src="./dist/vanilla/index.js"></script>
     <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
     <script>
       const clipcode = new Clipboard('[data-clipboard]', {
@@ -289,7 +331,7 @@ maskfy(value, options);
       });
     </script>
     <script type="module">
-      import { maskfy } from './dist/maskfy.esm.js';
+      import { maskfy } from './dist/esm/index.js';
       document.querySelector('#Prefix').addEventListener('input', (e) => {
         const valueMask = maskfy(e.target.value, { mask: '999.999', prefix: 'm² ' });
         e.target.value = valueMask.toUpperCase();
@@ -340,13 +382,7 @@ maskfy(value, options);
 </html>
 
 <!--
-- Atualizar a README.md
-- Add Vue example
-- Add Angular example
-- Add copy code button
-- Add input plugin with data-* attributes
-- Deprecated https://www.npmjs.com/package/react-maskfy project
-- Create release 3 on Github
+
 
 data-maskfy="999.999.999.999,99"
 data-maskfy-reverse="true"

@@ -2,12 +2,13 @@
   "name": "maskfy",
   "version": "3.0.0",
   "description": "A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, it's also well accepted on mobile devices",
-  "main": "dist/maskfy.cjs.js",
-  "module": "dist/maskfy.esm.js",
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
   "types": "src/types/index.d.ts",
   "exports": {
-    "import": "./dist/maskfy.esm.js",
-    "require": "./dist/maskfy.cjs.js"
+    "import": "./dist/esm/index.js",
+    "require": "./dist/cjs/index.js",
+    "types": "./src/types/index.d.ts"
   },
   "repository": {
     "type": "git",
@@ -32,7 +33,7 @@
   "scripts": {
     "test": "jest",
     "build": "rm -rf dist && tsc --project tsconfig.json",
-    "webpack": "webpack"
+    "webpack": "webpack build --config ./src/webpack/webpack.config.js"
   },
   "devDependencies": {
     "@babel/core": "^7.26.10",
