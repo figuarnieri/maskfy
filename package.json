@@ -40,9 +40,9 @@
   },
   "scripts": {
     "test": "jest",
-    "webpack": "rm -rf dist && webpack build --config ./src/webpack/webpack.config.js"
+    "build": "rm -rf dist && webpack build --config ./src/webpack/webpack.config.js"
   },
   "type": "module",
   "types": "src/types/index.d.ts",
-  "version": "3.1.1"
+  "version": "3.1.2"
 }

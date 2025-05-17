@@ -10,8 +10,6 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/base16/gruvbox-dark-pale.min.css"
     />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/javascript.min.js"></script>
   </head>
   <body>
     <div class="full">
@@ -41,7 +39,7 @@
         </div>
       </div>
       <svg class="logo-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 281.1 176.7">
-        <text class="logo-version">3.1.1</text>
+        <text class="logo-version">3.1.2</text>
         <path class="key key0 st0" />
         <path class="key key1 st0" />
         <path class="key key2 st0" />
@@ -70,7 +68,14 @@
       </p>
       <div class="page--contain">
         <h2 class="page--title">Install</h2>
-        <h3 class="page--subtitle">Node modules</h3>
+
+        <div class="page--header-group">
+          <h3 class="page--subtitle">Node modules</h3>
+          <div class="page--btn-group">
+            <button class="btn-small" data-clipboard data-clipboard-text="npm i maskfy">npm</button>
+            <button class="btn-small" data-clipboard data-clipboard-text="yarn add maskfy">yarn</button>
+          </div>
+        </div>
         <pre class="codesnippet-js"><code class="language-javascript">npm i maskfy
 
 // or
@@ -78,8 +83,13 @@
 yarn add maskfy</code></pre>
         <h2 class="page--title">Usage</h2>
 
-        <h3 class="page--subtitle">React</h3>
-        <pre class="codesnippet-js"><code class="language-javascript">import { maskfy } from 'maskfy';
+        <div class="page--header-group">
+          <h3 class="page--subtitle">React</h3>
+          <div class="page--btn-group">
+            <button class="btn-small" data-clipboard data-clipboard-text="import { maskfy } from 'maskfy';"></button>
+          </div>
+        </div>
+        <pre class="codesnippet-js"><code class="language-javascript" id="maskfy-react">import { maskfy } from 'maskfy';
 import { useState } from 'react';
 
 ...
@@ -123,29 +133,74 @@ export class AppComponent {
 bootstrapApplication(AppComponent); -->
         <pre class="codesnippet-js"><code class="language-javascript">// Coming soon</code></pre>
 
-        <h3 class="page--subtitle">ES Module</h3>
-        <pre class="codesnippet-js"><code class="language-html">&lt;input id="phone" />
+        <div class="page--header-group">
+          <h3 class="page--subtitle">ES Module</h3>
+          <div class="page--btn-group">
+            <button class="btn-small" data-clipboard data-clipboard-text="import { maskfy } from 'maskfy';"></button>
+          </div>
+        </div>
+        <pre class="codesnippet-js"><code class="language-javascript">import { maskfy } from './dist/esm';
+
+const valueMask = maskfy(e.target.value, { mask: '(99) 9999-9999' });
+console.log(valueMask);</code></pre>
+
+        <div class="page--header-group">
+          <h3 class="page--subtitle">CommonJS / UMD</h3>
+          <div class="page--btn-group">
+            <button class="btn-small" data-clipboard data-clipboard-text="const { maskfy } = require('./dist/cjs');">
+              CommonJS
+            </button>
+            <button class="btn-small" data-clipboard data-clipboard-text="const { maskfy } = require('./dist/umd');">
+              UMD
+            </button>
+          </div>
+        </div>
+        <pre class="codesnippet-js"><code class="language-javascript">const { maskfy } = require('maskfy');
+// or - const { maskfy } = require('maskfy');
+
+const valueMask = maskfy(valueInput, { mask: '(99) 9999-9999' });
+console.log(valueMask);</code></pre>
+
+        <div class="page--header-group">
+          <h3 class="page--subtitle">AMD</h3>
+          <div class="page--btn-group">
+            <button
+              class="btn-small"
+              data-clipboard
+              data-clipboard-text="const valueMask = window.Maskfy(e.target.value, { mask: '(99) 9999-9999' });
+              console.log(valueMask);"
+            ></button>
+          </div>
+        </div>
+        <pre
+          class="codesnippet-js"
+        ><code class="language-javascript">const valueMask = window.Maskfy(e.target.value, { mask: '(99) 9999-9999' });
+console.log(valueMask);</code></pre>
+
+        <div class="page--header-group">
+          <h3 class="page--subtitle">CDN</h3>
+          <div class="page--btn-group">
+            <button
+              class="btn-small"
+              data-clipboard
+              data-clipboard-text="import { maskfy } from 'https://cdn.jsdelivr.net/gh/figuarnieri/maskfy@master/dist/maskfy.js'
+            
+document.querySelector('#phone').addEventListener('input', (e) => {
+  const valueMask = maskfy(e.target.value, { mask: '(99) 9999-9999' });
+  e.target.value = valueMask.toUpperCase();
+});"
+            ></button>
+          </div>
+        </div>
+        <pre class="codesnippet-js"><code class="language-html" id="maskfy-umd">&lt;input id="phone" />
 
 ...
 
 &lt;script type="module">
-  import { maskfy } from './dist/esm/index.js'
+  import { maskfy } from 'https://cdn.jsdelivr.net/gh/figuarnieri/maskfy@master/dist/maskfy.js'
 
   document.querySelector('#phone').addEventListener('input', (e) => {
     const valueMask = maskfy(e.target.value, { mask: '(99) 9999-9999' });
-    e.target.value = valueMask.toUpperCase();
-  });
-&lt;/script></code></pre>
-
-        <h3 class="page--subtitle">Vanilla</h3>
-        <pre class="codesnippet-js"><code class="language-html">&lt;input id="phone" />
-
-...
-
-&lt;script src="./dist/vanilla/index.js" type="text/javascript">&lt;/script>
-&lt;script>
-  document.querySelector('#phone').addEventListener('input', (e) => {
-    const valueMask = window.Maskfy(e.target.value, { mask: '(99) 9999-9999' });
     e.target.value = valueMask.toUpperCase();
   });
 &lt;/script></code></pre>
@@ -215,6 +270,7 @@ maskfy(value, options);</code></pre>
             <td class="page--table-data">Suffix applied to the masked value</td>
           </tr>
         </table>
+
         <h2 class="page--title">Usage</h2>
         <pre class="codesnippet-js"><code class="language-javascript">maskfy(value, {
   mask: '999.999.999.999,99',
@@ -224,7 +280,7 @@ maskfy(value, options);</code></pre>
   },
   prefix: 'US$ ',
   suffix: ' %',
-})</code></pre>
+});</code></pre>
       </div>
       <div class="page--contain">
         <h2 class="page--title">Examples</h2>
@@ -278,28 +334,27 @@ maskfy(value, options);</code></pre>
             </label>
             <p class="page--form-demo">111.222.333.444,55</p>
           </div>
-          <div class="page--form-item">
+          <!-- <div class="page--form-item">
             <label class="page--form-label">
               <span>Test</span>
               <input type="text" id="Test" value="" placeholder="" />
             </label>
             <p class="page--form-demo">-</p>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="page--contain">
         <h2 class="page--title">Coming soon</h2>
-        <ul>
+        <ul style="margin-left: 24px">
           <!--
             - Add copy code button
             - Add badges support
-            - Add beforeformat and afterfomart
+            - Add formatBefore and formatAfter
           -->
-
           <li>Support to Vue</li>
           <li>Support to Angular</li>
           <li>Add plugin to handle input elements with data-* attributes</li>
-          <li>Add beforeFormat and afterFomart options</li>
+          <li>Add formatBefore and formatAfter options</li>
         </ul>
       </div>
       <div class="page--contain">
@@ -318,49 +373,43 @@ maskfy(value, options);</code></pre>
       </div>
     </div>
 
-    <script src="./dist/vanilla/index.js"></script>
-    <script src="https://cdn.rawgit.com/zenorocha/clipboard.js/v1.7.1/dist/clipboard.min.js"></script>
-    <script>
-      const clipcode = new Clipboard('[data-clipboard]', {
-        target: (e) => {
-          e.setAttribute('data-clipboard-copy', '');
-          return document.querySelector(
-            e.dataset.clipboard === 'data' ? '[data-clipboard-copy] .page--important' : '[data-clipboard-copy]'
-          );
-        },
-      });
-      clipcode.on('success', (e) => {
-        e.trigger.removeAttribute('data-clipboard-copy');
-      });
-    </script>
-    <script type="module">
-      import { maskfy } from './dist/esm/index.js';
+    <script src="./dist/umd/index.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/highlight.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.11.1/build/languages/javascript.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.11/dist/clipboard.min.js"></script>
+    <script defer>
+      const clipcode = new ClipboardJS('[data-clipboard]');
+
       document.querySelector('#Prefix').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '999.999', prefix: 'm² ' });
+        const valueMask = window.Maskfy(e.target.value, { mask: '999.999', prefix: 'm² ' });
         e.target.value = valueMask.toUpperCase();
       });
       document.querySelector('#Money').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '999.999.999,99', reverse: true });
+        const valueMask = window.Maskfy(e.target.value, { mask: '999.999.999,99', reverse: true });
         e.target.value = valueMask.toUpperCase();
       });
       document.querySelector('#CPF').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '999.999.999-99' });
+        const valueMask = window.Maskfy(e.target.value, { mask: '999.999.999-99' });
         e.target.value = valueMask.toUpperCase();
       });
       document.querySelector('#Phone').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '(99) 9999-9999' });
+        const valueMask = window.Maskfy(e.target.value, { mask: '(99) 9999-9999' });
+        e.target.value = valueMask.toUpperCase();
+      });
+      document.querySelector('#PhonAPI').addEventListener('input', (e) => {
+        const valueMask = window.Maskfy(e.target.value, { mask: '+99 99999999999' });
         e.target.value = valueMask.toUpperCase();
       });
       document.querySelector('#Date').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: '99/99/9999' });
+        const valueMask = window.Maskfy(e.target.value, { mask: '99/99/9999' });
         e.target.value = valueMask.toUpperCase();
       });
       document.querySelector('#Plate').addEventListener('input', (e) => {
-        const valueMask = maskfy(e.target.value, { mask: 'AAA 9A99' });
+        const valueMask = window.Maskfy(e.target.value, { mask: 'AAA 9A99' });
         e.target.value = valueMask.toUpperCase();
       });
-    </script>
-    <script>
+
+      // Highlight
       hljs.highlightAll();
     </script>
     <!--  -->
