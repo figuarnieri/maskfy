@@ -1,40 +1,9 @@
 {
-  "name": "maskfy",
-  "version": "3.0.0",
-  "description": "A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, it's also well accepted on mobile devices",
-  "main": "dist/esm/index.js",
-  "module": "dist/esm/index.js",
-  "types": "src/types/index.d.ts",
-  "exports": {
-    "import": "./dist/esm/index.js",
-    "require": "./dist/cjs/index.js",
-    "types": "./src/types/index.d.ts"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/figuarnieri/maskfy.git"
-  },
   "author": "figuarnieri",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/figuarnieri/maskfy/issues"
   },
-  "homepage": "https://github.com/figuarnieri/maskfy#readme",
-  "keywords": [
-    "inputmask",
-    "input-mask",
-    "javascript",
-    "nojquery",
-    "data-mask",
-    "1kb",
-    "maskfy"
-  ],
-  "type": "module",
-  "scripts": {
-    "test": "jest",
-    "build": "rm -rf dist && tsc --project tsconfig.json",
-    "webpack": "webpack build --config ./src/webpack/webpack.config.js"
-  },
+  "description": "A Javascript library without a dependency of jQuery, Zepto, and etc ... Very simple to install and use. With only 1kb (gzip) code, it's also well accepted on mobile devices",
   "devDependencies": {
     "@babel/core": "^7.26.10",
     "@babel/preset-env": "^7.26.9",
@@ -48,5 +17,32 @@
     "typescript": "^5.8.3",
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1"
-  }
+  },
+  "homepage": "https://github.com/figuarnieri/maskfy#readme",
+  "keywords": [
+    "1kb",
+    "data-mask",
+    "inputmask",
+    "input-mask",
+    "javascript",
+    "maskfy",
+    "mask-input",
+    "nojquery",
+    "react-mask"
+  ],
+  "license": "MIT",
+  "main": "dist/esm/index.js",
+  "module": "dist/esm/index.js",
+  "name": "maskfy",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/figuarnieri/maskfy.git"
+  },
+  "scripts": {
+    "test": "jest",
+    "webpack": "rm -rf dist && webpack build --config ./src/webpack/webpack.config.js"
+  },
+  "type": "module",
+  "types": "src/types/index.d.ts",
+  "version": "3.1.0"
 }

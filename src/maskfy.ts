@@ -4,7 +4,7 @@
  * @name Maskfy
  * @description: Simple, No Dependences and Compatibility with Vanilla, React, Vue, Angular, Mobile and etc...
  * @since: 2018
- * @version: 3.0.0
+ * @version: 3.1.0
  */
 
 'use strict';
@@ -19,6 +19,11 @@ const MaskfyDefault = {
   Suffix: '',
 } as const;
 
+/**
+ * @name Maskfy settings
+ * @descritpion An object containing the mask pattern and optional settings such as prefix, suffix, and formatting behavior.
+ **/
+
 const maskfySettings = (options: IMaskfyOptions = {}) => {
   const settings = {
     mask: MaskfyDefault.Mask,
@@ -30,6 +35,11 @@ const maskfySettings = (options: IMaskfyOptions = {}) => {
   };
   return settings;
 };
+
+/**
+ * @name Maskfy function
+ * @descritpion Applies a formatting mask to a string or number based on a defined pattern.
+ **/
 
 const maskfy = (value: string | number, options: IMaskfyOptions = {}) => {
   const settings = maskfySettings(options);
