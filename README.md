@@ -1,4 +1,4 @@
-# Maskfy (3.1.0) - Mask Simple
+# Maskfy (3.1.1) - Mask Simple
 A Javascript library without a dependencies... Compatibility with Vanilla, React and wherever. With only 1kb (gzip) code. It's also well accepted on mobile devices
 
 ## Install

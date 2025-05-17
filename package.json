@@ -18,7 +18,7 @@
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1"
   },
-  "homepage": "https://github.com/figuarnieri/maskfy#readme",
+  "homepage": "https://figuarnieri.github.io/maskfy",
   "keywords": [
     "1kb",
     "data-mask",
@@ -44,5 +44,5 @@
   },
   "type": "module",
   "types": "src/types/index.d.ts",
-  "version": "3.1.0"
+  "version": "3.1.1"
 }
