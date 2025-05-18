@@ -4,14 +4,18 @@
  * @name Maskfy
  * @description: Simple, No Dependences and Compatibility with Vanilla, React, Vue, Angular, Mobile and etc...
  * @since: 2018
- * @version: 3.1.2
+ * @version: 3.1.3
  */
 
 'use strict';
 
-import { IMaskfyOptions } from './types/index.d';
+import { IMaskfyOptions, IMaskfyOptionsResponse } from './types/index.d';
 
-const MaskfyDefault = {
+/**
+ * @name Maskfy default
+ * @descritpion Object with default values to Maskfy settings.
+ **/
+export const MaskfyDefault = {
   Mask: '999.999.999.999',
   Reverse: false,
   Keybind: { A: /[A-Za-z]/, 9: /\d/, '?': /./ },
@@ -23,8 +27,7 @@ const MaskfyDefault = {
  * @name Maskfy settings
  * @descritpion An object containing the mask pattern and optional settings such as prefix, suffix, and formatting behavior.
  **/
-
-const maskfySettings = (options: IMaskfyOptions = {}) => {
+export const maskfySettings = (options: IMaskfyOptions = {}): IMaskfyOptionsResponse => {
   const settings = {
     mask: MaskfyDefault.Mask,
     reverse: MaskfyDefault.Reverse,
@@ -40,8 +43,7 @@ const maskfySettings = (options: IMaskfyOptions = {}) => {
  * @name Maskfy function
  * @descritpion Applies a formatting mask to a string or number based on a defined pattern.
  **/
-
-const maskfy = (value: string | number, options: IMaskfyOptions = {}) => {
+export const maskfy = (value: string | number, options: IMaskfyOptions = {}) => {
   const settings = maskfySettings(options);
   const { mask, reverse, prefix, suffix, keybind } = settings;
   const valueString = String(value);
@@ -115,9 +117,3 @@ const maskfy = (value: string | number, options: IMaskfyOptions = {}) => {
 
   return valueFinal.join('');
 };
-
-export { maskfy, maskfySettings, MaskfyDefault };
-
-if (typeof window !== 'undefined') {
-  window['Maskfy'] = maskfy;
-}

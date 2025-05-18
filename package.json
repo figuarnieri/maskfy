@@ -18,6 +18,15 @@
     "webpack": "^5.99.8",
     "webpack-cli": "^6.0.1"
   },
+  "exports": {
+    ".": {
+      "require": "./dist/esm/index.js",
+      "import": "./dist/esm/index.js",
+      "types": "./src/types/index.d.ts"
+    },
+    "./dist/cjs": "./dist/cjs/index.js",
+    "./dist/amd": "./dist/amd/index.js"
+  },
   "homepage": "https://figuarnieri.github.io/maskfy",
   "keywords": [
     "1kb",
@@ -31,9 +40,9 @@
     "react-mask"
   ],
   "license": "MIT",
-  "main": "dist/esm/index.js",
-  "module": "dist/esm/index.js",
+  "main": "./dist/esm/index.js",
   "name": "maskfy",
+  "readme": "https://github.com/figuarnieri/maskfy/blob/master/README.md",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/figuarnieri/maskfy.git"
@@ -44,5 +53,5 @@
   },
   "type": "module",
   "types": "src/types/index.d.ts",
-  "version": "3.1.2"
+  "version": "3.1.3"
 }

@@ -13,16 +13,8 @@ const baseConfig = {
   mode: 'production',
 };
 
+/** @type {import('webpack').Configuration[]} */
 export default [
-  {
-    ...baseConfig,
-    output: {
-      filename: 'cjs/index.js',
-      path: path.resolve(__dirname, '../../dist'),
-      library: { type: 'commonjs2' },
-    },
-    target: 'node',
-  },
   {
     ...baseConfig,
     output: {
@@ -38,26 +30,19 @@ export default [
   {
     ...baseConfig,
     output: {
+      filename: 'cjs/index.js',
+      path: path.resolve(__dirname, '../../dist'),
+      library: { name: 'Maskfy', type: 'commonjs2', umdNamedDefine: true },
+      globalObject: 'this',
+    },
+    target: 'node',
+  },
+  {
+    ...baseConfig,
+    output: {
       filename: 'amd/index.js',
       path: path.resolve(__dirname, '../../dist'),
-      library: { type: 'amd' },
-    },
-    target: 'web',
-  },
-  {
-    ...baseConfig,
-    output: {
-      filename: 'vanilla/index.js',
-      path: path.resolve(__dirname, '../../dist'),
-    },
-    target: 'web',
-  },
-  {
-    ...baseConfig,
-    output: {
-      filename: 'umd/index.js',
-      path: path.resolve(__dirname, '../../dist'),
-      libraryTarget: 'umd',
+      library: { name: 'Maskfy', type: 'umd2', umdNamedDefine: true },
       globalObject: 'this',
     },
     target: 'web',
