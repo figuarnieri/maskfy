@@ -16,4 +16,4 @@ export interface IMaskfyOptionsResponse {
 
 declare function maskfy(value: string, options?: IMaskfyOptions): string;
 
-declare function maskfySettings(options: IMaskfyOptions): IMaskfyOptions;
+declare function maskfySettings(options: IMaskfyOptions): IMaskfyOptionsResponse;

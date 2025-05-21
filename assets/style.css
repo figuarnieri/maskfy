@@ -168,7 +168,7 @@ pre {
 .full {
   animation: bg 1.6s;
   animation-fill-mode: forwards;
-  height: 70vh;
+  min-height: 70vh;
   background-color: orange;
   display: flex;
   justify-content: center;

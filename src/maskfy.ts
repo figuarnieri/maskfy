@@ -4,7 +4,7 @@
  * @name Maskfy
  * @description: Simple, No Dependences and Compatibility with Vanilla, React, Vue, Angular, Mobile and etc...
  * @since: 2018
- * @version: 3.1.3
+ * @version: 3.1.4
  */
 
 'use strict';
@@ -31,10 +31,13 @@ export const maskfySettings = (options: IMaskfyOptions = {}): IMaskfyOptionsResp
   const settings = {
     mask: MaskfyDefault.Mask,
     reverse: MaskfyDefault.Reverse,
-    keybind: MaskfyDefault.Keybind,
     prefix: MaskfyDefault.Prefix,
     suffix: MaskfyDefault.Suffix,
     ...options,
+    keybind: {
+      ...MaskfyDefault.Keybind,
+      ...options.keybind,
+    },
   };
   return settings;
 };
