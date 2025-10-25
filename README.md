@@ -1,4 +1,4 @@
-# Maskfy (3.1.4) - Mask Simple
+# Maskfy (3.1.5) - Mask Simple
 ![GitHub](https://img.shields.io/github/license/figuarnieri/maskfy?style=plastic) ![npm package minimized gzipped size](https://img.shields.io/bundlejs/size/maskfy?style=plastic) ![GitHub](https://img.shields.io/badge/CDN-jsDelivr-yellow?style=plastic) ![GitHub](https://img.shields.io/badge/AMD-purple?style=plastic) ![GitHub](https://img.shields.io/badge/CommonJS-purple?style=plastic) ![GitHub](https://img.shields.io/badge/ESModule-purple?style=plastic)
 
 ![Logo](https://github.com/figuarnieri/maskfy/raw/master/assets/cover.webp)

@@ -4,7 +4,7 @@
  * @name Maskfy
  * @description: Simple, No Dependences and Compatibility with Vanilla, React, Vue, Angular, Mobile and etc...
  * @since: 2018
- * @version: 3.1.4
+ * @version: 3.1.5
  */
 
 'use strict';

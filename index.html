@@ -39,7 +39,7 @@
         </div>
       </div>
       <svg class="logo-svg" version="1.1" xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" viewBox="0 0 281.1 176.7">
-        <text class="logo-version">3.1.4</text>
+        <text class="logo-version">3.1.5</text>
         <path class="key key0 st0" />
         <path class="key key1 st0" />
         <path class="key key2 st0" />
@@ -117,29 +117,47 @@ const handleInput = (e) => {
 &lt;input name="phone" value={stateValue} onInput={handleInput} /></code></pre>
 
         <h3 class="page--subtitle">Vue</h3>
-        <pre class="codesnippet-js"><code class="language-javascript">// Coming soon</code></pre>
+        <pre class="codesnippet-js"><code class="language-javascript">import { ref } from 'vue';
+import { maskfy } from 'maskfy';
+
+...
+
+const stateValue = ref('');
+const handleInput = (e: Event) => {
+  const { value } = e.target as HTMLInputElement;
+  const valueWithMask = maskfy(value, { mask: '(99) 9999-9999' });
+  stateValue.value = valueWithMask;
+}
+
+...
+
+&lt;template>
+  &lt;input name="phone" maxlength="15" :value="stateValue" @input="handleInput" />
+&lt;/template></code></pre>
 
         <h3 class="page--subtitle">Angular</h3>
-        <!-- import { Component, model } from '@angular/core';
-import { bootstrapApplication } from '@angular/platform-browser';
+        <pre class="codesnippet-js"><code class="language-javascript">import { Component } from '@angular/core';
+import { maskfy } from 'maskfy';
 
-@Component({
-  selector: 'app-root',
-  template: `<input (input)="handleInput($event)" value={{valueMask()}} />`,
-})
+...
+
+@Component({ selector: 'app-root', templateUrl: './app.component.html' });
+
+...
 
 export class AppComponent {
-  valueMask = model<string>();
+  stateValue: string = '';
 
-  handleInput(event: Event) {
-    const target = event.target as HTMLInputElement;
-    const value = target.value.replace(/\D/g, '');
-    this.valueMask.update(() => value);
+  handleInput(event: Event): void {
+    const input = event.target as HTMLInputElement;
+    const valueWithMask = maskfy(input.value, { mask: '(99) 9999-9999' });
+    this.stateValue = valueWithMask;
   }
 }
 
-bootstrapApplication(AppComponent); -->
-        <pre class="codesnippet-js"><code class="language-javascript">// Coming soon</code></pre>
+...
+
+&lt;input name="phone" maxlength="15" [value]="stateValue" (input)="handleInput($event)" /></code></pre>
 
         <div class="page--header-group">
           <h3 class="page--subtitle">ES Module</h3>
@@ -347,14 +365,6 @@ maskfy(value, options);</code></pre>
       <div class="page--contain">
         <h2 class="page--title">Coming soon</h2>
         <ul style="margin-left: 24px">
-          <!--
-            - Support to Vue
-            - Support to Angular
-            - Add plugin to handle input elements with data-* attributes
-            - Add formatBefore and formatAfter
-          -->
-          <li>Support to Vue</li>
-          <li>Support to Angular</li>
           <li>Add plugin to handle input elements with data-* attributes</li>
           <li>Add formatBefore and formatAfter options</li>
         </ul>
@@ -456,11 +466,8 @@ maskfy(value, options);</code></pre>
 </html>
 
 <!--
-
-
 data-maskfy="999.999.999.999,99"
 data-maskfy-reverse="true"
 data-maskfy-minsize="4"
 data-maskfy-letters="true"
-
 -->
